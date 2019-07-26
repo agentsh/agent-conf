@@ -44,17 +44,10 @@ const SponsorFooter: FunctionComponent<SponsorFooterProps> = props => (
       const [topSponsor, ...sponsors] = elements;
       return (
         <SimpleContentWrapper background={theme.black} color={theme.white}>
-          <Spaced multipleBottom={7} multipleTop={7}>
-            <HeadlineGroup
-              headline={
-                <H2 color={theme.white}>
-                  Partners & <br />
-                  Sponsors
-                </H2>
-              }
-            />
-            <Padded multiple={5}>
-              <Spaced multipleTop={4} multipleBottom={3}>
+          <Spaced multipleBottom={0} multipleTop={7}>
+            <HeadlineGroup headline={<H2 color={theme.white}>Sponsors</H2>} />
+            <Padded multiple={1}>
+              <Spaced multipleTop={4} multipleBottom={1}>
                 <Row halign="center">
                   <Col size={{xs: 1 / 2, md: 1 / 3}} key={topSponsor.name} valign="center">
                     <A href={topSponsor.url.url} target="_blank">
@@ -64,20 +57,20 @@ const SponsorFooter: FunctionComponent<SponsorFooterProps> = props => (
                     </A>
                   </Col>
                 </Row>
+                <Row halign="center" valign="center">
+                  {sponsors.map(sponsor => {
+                    return (
+                      <Col size={{xs: 1 / 2, md: 1 / 4}} key={sponsor.name} valign="center">
+                        <A href={sponsor.url.url} target="_blank">
+                          <LazyLoad height={100} offset={100}>
+                            <SponsorImage smaller={true} hasPadding={true} src={sponsor.logo.url} alt={sponsor.name} />
+                          </LazyLoad>
+                        </A>
+                      </Col>
+                    );
+                  })}
+                </Row>
               </Spaced>
-              <Row halign="center" valign="center">
-                {sponsors.map(sponsor => {
-                  return (
-                    <Col size={{xs: 1 / 2, md: 1 / 3}} key={sponsor.name} valign="center">
-                      <A href={sponsor.url.url} target="_blank">
-                        <LazyLoad height={100} offset={100}>
-                          <SponsorImage smaller={true} hasPadding={true} src={sponsor.logo.url} alt={sponsor.name} />
-                        </LazyLoad>
-                      </A>
-                    </Col>
-                  );
-                })}
-              </Row>
             </Padded>
           </Spaced>
         </SimpleContentWrapper>

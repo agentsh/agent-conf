@@ -84,7 +84,7 @@ CustomHead.defaultProps = {
     Efficiently unleash cross-media information without cross-media value.`,
   robots: 'follow',
   image: 'https://www.agent.sh/static/assets/og.jpg',
-  url: 'worker.sh',
+  url: 'agent.sh',
 };
 
 export default CustomHead;

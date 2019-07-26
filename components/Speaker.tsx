@@ -46,11 +46,7 @@ const Speaker: React.FunctionComponent<SpeakerProps> = ({speaker}) => (
       <img src={speaker.foto.url} alt={speaker.name} />
     </LazyLoad>
     <Name>{speaker.name}</Name>
-    <Text>
-      {speaker.works_on}
-      <br />
-      {speaker.company}
-    </Text>
+    <Text>{speaker.company}</Text>
     {speaker.twitter && speaker.twitter !== '' && (
       <Twitter>
         <a href={`https://www.twitter.com/${speaker.twitter}`} target="_blank" rel="noopener noreferrer">

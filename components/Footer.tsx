@@ -6,6 +6,7 @@ import Banner from './Banner';
 import SponsorFooter from './SponsorFooter';
 import styled, {media} from '../common/styled';
 import Link from 'next/link';
+import PartnerFooter from './PartnerFooter';
 
 const Nav = styled.div`
   padding: ${props => props.theme.spacing * 2}px 0;
@@ -39,6 +40,7 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
     <Fragment>
       <Banner slug="about-agent" />
       {!hideSponsors && <SponsorFooter uid="footer-sponsors-2020" />}
+      <PartnerFooter uid="partners" />
       <Nav>
         <Container>
           <Row>

@@ -11,7 +11,6 @@ import {Col, Padded, Row, Spaced} from '../common/Grid';
 import {theme} from '../common/styled';
 import {HomepageType} from '../common/types';
 import {A, FontBig, H1, H2, H3, RichTextWrapper} from '../common/typography';
-import BorderedImage from '../components/BorderedImage';
 import ContentWrapper from '../components/ContentWrapper';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
@@ -23,6 +22,7 @@ import SponsorBar from '../components/SponsorBar';
 import Talks from '../components/Talks';
 import Tickets from '../components/Tickets';
 import YouTube from 'react-youtube';
+import BorderedBlock from '../components/BorderedBlock';
 
 const youtubeOptions = {
   width: '100%',
@@ -126,7 +126,9 @@ const Index: NextPage = () => {
                   </Padded>
                 </Spaced>
                 <LazyLoad height={200} offset={100}>
-                  <YouTube videoId={'-mhY7e-EsC4'} className={''} containerClassName={''} opts={youtubeOptions} />
+                  <BorderedBlock>
+                    <YouTube videoId={'p0ktS5M0yWs'} className={''} containerClassName={''} opts={youtubeOptions} />
+                  </BorderedBlock>
                 </LazyLoad>
               </ContentWrapper>
               <SimpleContentWrapper background={theme.black} color={theme.white}>
@@ -181,9 +183,7 @@ const Index: NextPage = () => {
                   </Spaced>
                 </ContentWrapper>
               </div>
-              <LazyLoad offset={300}>
-                <Tickets />
-              </LazyLoad>
+              <Tickets />
               <Footer />
             </Fragment>
           );
