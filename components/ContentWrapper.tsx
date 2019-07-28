@@ -1,13 +1,14 @@
 import styled, {media} from '../common/styled';
+import React from 'react';
 
-export interface IContentWrapper {
+export interface ContentWrapper {
   colorTop: string;
   colorMain: string;
   colorBottom: string;
   backgroundContent?: string;
 }
 
-const TriColorWrapper = styled.div<IContentWrapper>`
+const TriColorWrapper = styled.div<ContentWrapper>`
   background: linear-gradient(
     to bottom,
     ${props => props.colorTop} 0%,
@@ -39,7 +40,7 @@ const Container = styled.div<{background: string}>`
   background: ${props => (props.background ? props.background : 'none')};
 `;
 
-const ContentWrapper: React.SFC<IContentWrapper> = ({children, backgroundContent, ...rest}) => {
+const ContentWrapper: React.SFC<ContentWrapper> = ({children, backgroundContent, ...rest}) => {
   return (
     <TriColorWrapper {...rest}>
       <Container background={backgroundContent}>{children}</Container>

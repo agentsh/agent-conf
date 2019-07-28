@@ -40,6 +40,9 @@ const Content = styled.div<{lineColor: string}>`
     margin-top: ${props => props.theme.spacing * 2}px;
     margin-bottom: ${props => props.theme.spacing * 2}px;
   }
+  h3 {
+    margin: 0;
+  }
 `;
 const SmallTop = styled.span<{color: string}>`
   font-size: 25px;

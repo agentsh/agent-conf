@@ -150,26 +150,22 @@ const Index: NextPage = () => {
                   colorMain={theme.white}
                   colorBottom={theme.black}
                   backgroundContent={theme.white}>
-                  <Spaced multipleBottom={4} multipleTop={4}>
-                    <HeadlineGroup
-                      headline={
-                        <H2 color={theme.primaryColor}>
-                          The <br />
-                          Schedule
-                        </H2>
-                      }
-                      lineColor={theme.primaryColor}
-                    />
-                    <Padded multiple={5}>
-                      <Spaced multipleTop={3} multipleBottom={3}>
-                        <H3 color={theme.black}>21.02.2019 Conference Day</H3>
-                        <Talks uid="talks-2019-1" />
-                      </Spaced>
-                      <Spaced multipleTop={0} multipleBottom={3}>
-                        <H3 color={theme.black}>22.02.2019 Conference Day</H3>
-                        <Talks uid="talks-2019-2" />
-                      </Spaced>
-                    </Padded>
+                  <HeadlineGroup
+                    headline={
+                      <H2 color={theme.primaryColor}>
+                        The <br />
+                        Schedule
+                      </H2>
+                    }
+                    lineColor={theme.primaryColor}
+                  />
+                  <Spaced multipleTop={3} multipleBottom={5}>
+                    <H3 color={theme.black}>21.02.2019 Conference Day</H3>
+                    <Talks uid="talks-2019-1" />
+                  </Spaced>
+                  <Spaced multipleTop={0} multipleBottom={0}>
+                    <H3 color={theme.black}>22.02.2019 Conference Day</H3>
+                    <Talks uid="talks-2019-2" />
                   </Spaced>
                 </ContentWrapper>
               </div>

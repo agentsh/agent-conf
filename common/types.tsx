@@ -38,8 +38,10 @@ export interface TalkType {
   type: TalkTypeType;
   description: RichTextType;
   speaker: SpeakerType;
-  speaker2: SpeakerType;
+  speaker_2: SpeakerType;
+  video?: WebLink;
 }
+
 export interface TalksType {
   date: string;
   slots: TalkType[];

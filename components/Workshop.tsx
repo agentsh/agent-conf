@@ -26,11 +26,11 @@ const ButtonWrapper = styled.div`
     top: ${props => props.theme.spacing}px;
   }
 `;
-export interface IWorkshopProps {
+export interface WorkshopProps {
   workshop: WorkshopType;
   showTimes: boolean;
 }
-const Workshop: FunctionComponent<IWorkshopProps> = ({
+const Workshop: FunctionComponent<WorkshopProps> = ({
   workshop: {start_time, end_time, workshop_title, description, speaker, speaker2},
   showTimes,
 }): JSX.Element => {

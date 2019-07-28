@@ -152,8 +152,7 @@ export const RichTextWrapper = styled.div`
 `;
 
 export const Time = styled.div`
-  font-size: 18px;
-  text-decoration: underline;
+  font-size: 22px;
 `;
 
 export const FontBig = styled.div`
@@ -168,8 +167,7 @@ export const FontBig = styled.div`
 export const SessionTitle = styled.div`
   font-size: 22px;
   font-weight: bold;
-  padding-bottom: ${props => props.theme.spacing}px;
   ${media.md} {
-    font-size: 30px;
+    font-size: 22px;
   }
 `;

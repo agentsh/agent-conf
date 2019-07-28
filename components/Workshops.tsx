@@ -39,10 +39,10 @@ export const query = gql`
   }
 `;
 
-interface IWorkshopsProps {
+interface WorkshopsProps {
   uid: string;
 }
-const Workshops: React.SFC<IWorkshopsProps> = ({uid}) => (
+const Workshops: React.SFC<WorkshopsProps> = ({uid}) => (
   <Query query={query} variables={{uid}}>
     {({loading, error, data}) => {
       if (error) return <div>error</div>;

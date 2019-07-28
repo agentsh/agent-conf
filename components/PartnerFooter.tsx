@@ -4,7 +4,7 @@ import LazyLoad from 'react-lazyload';
 import gql from 'graphql-tag';
 
 import {Col, Row, Spaced, Padded} from '../common/Grid';
-import {H2} from '../common/typography';
+import {H2, H3} from '../common/typography';
 import {SponsorType} from '../common/types';
 import HeadlineGroup from './HeadlineGroup';
 import SimpleContentWrapper from './SimpleContentWrapper';
@@ -43,8 +43,7 @@ const PartnerFooter: FunctionComponent<SponsorFooterProps> = props => (
       const {elements}: {elements: SponsorType[]} = data.sponsors;
       return (
         <SimpleContentWrapper background={theme.black} color={theme.white}>
-          <Spaced multipleBottom={7} multipleTop={4}>
-            <HeadlineGroup headline={<H2 color={theme.white}>Partners</H2>} />
+          <Spaced multipleBottom={5} multipleTop={2}>
             <Padded multiple={5}>
               <Row halign="center" valign="center">
                 {elements.map(sponsor => {

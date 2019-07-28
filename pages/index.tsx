@@ -164,11 +164,11 @@ const Index: NextPage = () => {
                     <Padded multiple={5}>
                       <Spaced multipleTop={3} multipleBottom={3}>
                         <H3 color={theme.black}>23.01. Conference Day</H3>
-                        <Talks uid="talks-2020-1" />
+                        <Talks uid="schedule-2020-day-1" />
                       </Spaced>
                       <Spaced multipleTop={0} multipleBottom={3}>
                         <H3 color={theme.black}>24.01. Conference Day</H3>
-                        <Talks uid="talks-2020-2" />
+                        <Talks uid="schedule-2020-day-2" />
                       </Spaced>
                       <Spaced multipleTop={0} multipleBottom={0}>
                         <H3 color={theme.black}>25.01. & 26.01. Activity Days in Lech</H3>

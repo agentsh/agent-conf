@@ -27,7 +27,7 @@ export interface ThemeInterface {
 }
 
 export const theme = {
-  lightGrey: '#999999',
+  lightGrey: '#afafaf',
   white: '#ffffff',
   black: '#000000',
   primaryColor: '#F92672',

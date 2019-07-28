@@ -9,6 +9,7 @@ const SmallWrapper = styled.div`
   flex-direction: row;
   width: 100%;
   vertical-align: center;
+  margin-top: ${props => props.theme.spacing}px;
   margin-bottom: ${props => props.theme.spacing}px;
   img {
     width: 40px;
@@ -30,7 +31,6 @@ export interface SpeakerPreviewProps {
   small: boolean;
 }
 
-// _meta: {slug},
 const SpeakerPreview: FunctionComponent<SpeakerPreviewProps> = ({speaker: {name, foto}}): JSX.Element => {
   return (
     <SmallWrapper>

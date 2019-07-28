@@ -34,15 +34,20 @@ export const query = gql`
             }
           }
         }
+        video {
+          ... on _ExternalLink {
+            url
+          }
+        }
       }
     }
   }
 `;
 
-interface ITalksProps {
+interface TalksProps {
   uid: string;
 }
-const Talks: FunctionComponent<ITalksProps> = ({uid}) => (
+const Talks: FunctionComponent<TalksProps> = ({uid}) => (
   <Query query={query} variables={{uid}}>
     {({loading, error, data}) => {
       if (error) return <div>error</div>;

@@ -1,15 +1,14 @@
-import {Query, QueryResult} from 'react-apollo';
-import React, {FunctionComponent} from 'react';
-import LazyLoad from 'react-lazyload';
 import gql from 'graphql-tag';
-
-import {Col, Row, Spaced, Padded} from '../common/Grid';
-import {H2} from '../common/typography';
+import React, {FunctionComponent} from 'react';
+import {Query, QueryResult} from 'react-apollo';
+import LazyLoad from 'react-lazyload';
+import {Col, Padded, Row, Spaced} from '../common/Grid';
+import styled, {theme} from '../common/styled';
 import {SponsorType} from '../common/types';
+import {H3} from '../common/typography';
 import HeadlineGroup from './HeadlineGroup';
 import SimpleContentWrapper from './SimpleContentWrapper';
 import SponsorImage from './SponsorImage';
-import styled, {theme} from '../common/styled';
 
 const query = gql`
   query sponsors($uid: String!) {
@@ -31,6 +30,7 @@ const A = styled.a`
   flex: 1;
   align-items: center;
 `;
+
 interface SponsorFooterProps {
   uid: string;
 }
@@ -44,8 +44,11 @@ const SponsorFooter: FunctionComponent<SponsorFooterProps> = props => (
       const [topSponsor, ...sponsors] = elements;
       return (
         <SimpleContentWrapper background={theme.black} color={theme.white}>
-          <Spaced multipleBottom={0} multipleTop={7}>
-            <HeadlineGroup headline={<H2 color={theme.white}>Sponsors</H2>} />
+          <Spaced multipleBottom={0} multipleTop={3}>
+            <HeadlineGroup
+              smallTop={'Not possible without'}
+              headline={<H3 color={theme.white}>Sponsors & Partners</H3>}
+            />
             <Padded multiple={1}>
               <Spaced multipleTop={4} multipleBottom={1}>
                 <Row halign="center">
