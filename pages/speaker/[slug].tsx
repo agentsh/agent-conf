@@ -2,7 +2,6 @@ import gql from 'graphql-tag';
 import {NextPage, NextPageContext} from 'next';
 import React, {Fragment} from 'react';
 import {Query} from 'react-apollo';
-import Page from 'react-page-loading';
 import {Container} from '../../common/Grid';
 import {theme} from '../../common/styled';
 import {SpeakerType} from '../../common/types';
@@ -22,14 +21,15 @@ export const query = gql`
   }
 `;
 
-interface ISpeakerProps {
+interface SpeakerProps {
   slug: string;
 }
-const Speaker: NextPage<ISpeakerProps> = props => (
+const Speaker: NextPage<SpeakerProps> = props => (
   <Query query={query} variables={{uid: props.slug}}>
     {({loading, error, data}) => {
       if (error) return <div>error</div>;
-      if (loading) return <Page loader={'bar'} color={'#A9A9A9'} size={10} />;
+      if (loading) return <div>loading...</div>;
+
       const {speaker}: {speaker: SpeakerType} = data;
       return (
         <Fragment>

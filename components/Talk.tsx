@@ -32,6 +32,9 @@ const VideoLink = styled.a`
   padding-top: 25px;
   display: block;
   float: right;
+  font-size: 30px;
+  font-weight: bold;
+  color: ${({theme}) => theme.primaryColor};
 `;
 export interface TalkProps {
   talk: TalkType;
@@ -65,7 +68,7 @@ const Talk: FunctionComponent<TalkProps> = ({
               {video && (
                 <Col size={{xs: 1, sm: 1, md: 0.2, lg: 0.2}}>
                   <VideoLink href={video.url} target="blank" rel="noopener noreferrer">
-                    video
+                    ▶
                   </VideoLink>
                 </Col>
               )}

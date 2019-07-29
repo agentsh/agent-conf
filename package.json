@@ -23,7 +23,6 @@
     "react-dom": "^16.8.6",
     "react-icons": "^3.5.0",
     "react-lazyload": "^2.5.0",
-    "react-page-loading": "^1.0.2",
     "react-youtube": "^7.9.0",
     "styled-components": "^4.2.0",
     "styled-components-grid": "^2.2.2"

@@ -40,7 +40,7 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
     <Fragment>
       <Banner slug="about-agent" />
       {!hideSponsors && <SponsorFooter uid="footer-sponsors-2020" />}
-      <PartnerFooter uid="partners" />
+      {!hideSponsors && <PartnerFooter uid="partners" />}
       <Nav>
         <Container>
           <Row>

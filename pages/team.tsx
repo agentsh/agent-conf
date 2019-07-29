@@ -1,14 +1,12 @@
-import {FaTwitter} from 'react-icons/fa';
-import {Query} from 'react-apollo';
+import gql from 'graphql-tag';
 import {RichText} from 'prismic-reactjs';
 import React, {Fragment, FunctionComponent} from 'react';
-
-import gql from 'graphql-tag';
-
-import Page from 'react-page-loading';
+import {Query} from 'react-apollo';
+import {FaTwitter} from 'react-icons/fa';
 import {Col, Padded, Row, Spaced} from '../common/Grid';
-import {H1Small, H2Small, RichTextWrapper} from '../common/typography';
+import styled, {theme} from '../common/styled';
 import {TeamType} from '../common/types';
+import {H1Small, H2Small, RichTextWrapper} from '../common/typography';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -16,7 +14,6 @@ import HeadlineGroup from '../components/HeadlineGroup';
 import SimpleContentWrapper from '../components/SimpleContentWrapper';
 import SponsorBar from '../components/SponsorBar';
 import Tickets from '../components/Tickets';
-import styled, {theme} from '../common/styled';
 
 export const query = gql`
   {
@@ -65,7 +62,7 @@ const Team: FunctionComponent = () => (
   <Query query={query}>
     {({loading, error, data}) => {
       if (error) return <div>error</div>;
-      if (loading) return <Page loader={'bar'} color={'#A9A9A9'} size={10} />;
+      if (loading) return <div>loading ...</div>;
       const teamMembers: TeamType[] = data.allTeams.edges.map(entry => entry.node);
       return (
         <Fragment>

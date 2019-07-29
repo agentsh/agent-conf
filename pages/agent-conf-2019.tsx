@@ -4,7 +4,6 @@ import {RichText} from 'prismic-reactjs';
 import React, {Fragment, useEffect} from 'react';
 import {Query, QueryResult} from 'react-apollo';
 import LazyLoad from 'react-lazyload';
-import Page from 'react-page-loading';
 import YouTube from 'react-youtube';
 import Fonts from '../common/Fonts';
 import {Col, Padded, Row, Spaced} from '../common/Grid';
@@ -72,7 +71,7 @@ const Index: NextPage = () => {
       <Query query={indexQuery}>
         {({loading, error, data}: QueryResult) => {
           if (error) return <div>error</div>;
-          if (loading) return <Page loader={'bar'} color={'#A9A9A9'} size={10} />;
+          if (loading) return <div>loading ...</div>;
           const {homepage}: {homepage: HomepageType} = data;
           return (
             <Fragment>

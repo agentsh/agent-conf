@@ -106,8 +106,8 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/worker-conf-2018'}>
-                      <NavLink>Worker Conf 2018</NavLink>
+                    <Link href={'/agent-conf-2019'}>
+                      <NavLink>AgentConf 2019</NavLink>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>

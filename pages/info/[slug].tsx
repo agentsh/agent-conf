@@ -1,13 +1,11 @@
-import {Query, QueryResult} from 'react-apollo';
+import gql from 'graphql-tag';
+import {NextPage, NextPageContext} from 'next';
 import {RichText} from 'prismic-reactjs';
 import React, {Fragment} from 'react';
-
-import gql from 'graphql-tag';
-
-import Page from 'react-page-loading';
-import {H1Small, RichTextWrapper} from '../../common/typography';
+import {Query, QueryResult} from 'react-apollo';
 import {Padded, Spaced} from '../../common/Grid';
 import {theme} from '../../common/styled';
+import {H1Small, RichTextWrapper} from '../../common/typography';
 import BorderedImage from '../../components/BorderedImage';
 import ContentWrapper from '../../components/ContentWrapper';
 import CustomHead from '../../components/CustomHead';
@@ -17,7 +15,6 @@ import HeadlineGroup from '../../components/HeadlineGroup';
 import SimpleContentWrapper from '../../components/SimpleContentWrapper';
 import SponsorBar from '../../components/SponsorBar';
 import Tickets from '../../components/Tickets';
-import {NextPageContext, NextPage} from 'next';
 
 export const query = gql`
   query content($uid: String!) {
@@ -42,7 +39,7 @@ const Info: NextPage<InfoProps> = ({slug}) => (
   <Query query={query} variables={{uid: slug}}>
     {({loading, error, data}: QueryResult) => {
       if (error) return <div>error</div>;
-      if (loading) return <Page loader={'bar'} color={'#A9A9A9'} size={10} />;
+      if (loading) return <div>loading...</div>;
       return (
         <Fragment>
           <CustomHead
@@ -61,13 +58,13 @@ const Info: NextPage<InfoProps> = ({slug}) => (
               }
             />
           </Header>
-          <SponsorBar uid={'sponsor-bar'} />
+          <SponsorBar uid={'sponsor-bar-2020'} />
 
           <ContentWrapper
-            colorTop={theme.lightGrey}
-            colorMain={theme.lightGrey}
-            colorBottom={data.content.content_2 ? theme.secondaryColor : theme.lightGrey}
-            backgroundContent={theme.lightGrey}>
+            colorTop={theme.white}
+            colorMain={theme.white}
+            colorBottom={data.content.content_2 ? theme.lightGrey : theme.white}
+            backgroundContent={theme.white}>
             <Padded multiple={5}>
               <Spaced multipleBottom={4} multipleTop={4}>
                 <RichTextWrapper>{RichText.render(data.content.content_1)}</RichTextWrapper>
@@ -76,7 +73,7 @@ const Info: NextPage<InfoProps> = ({slug}) => (
             {data.content.image && <BorderedImage src={data.content.image.url} alt={data.content.image.alt} />}
           </ContentWrapper>
           {data.content.content_2 && (
-            <SimpleContentWrapper background={theme.secondaryColor} color={theme.white}>
+            <SimpleContentWrapper background={theme.lightGrey} color={theme.black}>
               <Spaced multipleTop={5} multipleBottom={5}>
                 <Padded multiple={5}>
                   <RichTextWrapper>{RichText.render(data.content.content_2)}</RichTextWrapper>

@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import React, {Fragment} from 'react';
-import {Query} from 'react-apollo';
+import {Query, QueryResult} from 'react-apollo';
 import {WorkshopsType} from '../common/types';
 import Workshop from './Workshop';
 
@@ -44,7 +44,7 @@ interface WorkshopsProps {
 }
 const Workshops: React.SFC<WorkshopsProps> = ({uid}) => (
   <Query query={query} variables={{uid}}>
-    {({loading, error, data}) => {
+    {({loading, error, data}: QueryResult) => {
       if (error) return <div>error</div>;
       if (loading) return <div>Loading</div>;
       const {workshops}: {workshops: WorkshopsType} = data;

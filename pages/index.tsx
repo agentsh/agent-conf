@@ -5,12 +5,13 @@ import {RichText} from 'prismic-reactjs';
 import React, {Fragment, useEffect} from 'react';
 import {Query, QueryResult} from 'react-apollo';
 import LazyLoad from 'react-lazyload';
-import Page from 'react-page-loading';
+import YouTube from 'react-youtube';
 import Fonts from '../common/Fonts';
 import {Col, Padded, Row, Spaced} from '../common/Grid';
 import {theme} from '../common/styled';
 import {HomepageType} from '../common/types';
 import {A, FontBig, H1, H2, H3, RichTextWrapper} from '../common/typography';
+import BorderedBlock from '../components/BorderedBlock';
 import ContentWrapper from '../components/ContentWrapper';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
@@ -21,8 +22,6 @@ import Speakers from '../components/Speakers';
 import SponsorBar from '../components/SponsorBar';
 import Talks from '../components/Talks';
 import Tickets from '../components/Tickets';
-import YouTube from 'react-youtube';
-import BorderedBlock from '../components/BorderedBlock';
 
 const youtubeOptions = {
   width: '100%',
@@ -73,7 +72,7 @@ const Index: NextPage = () => {
       <Query query={indexQuery}>
         {({loading, error, data}: QueryResult) => {
           if (error) return <div>error</div>;
-          if (loading) return <Page loader={'bar'} color={'#A9A9A9'} size={10} />;
+          if (loading) return <div>loading ...</div>;
           const {homepage}: {homepage: HomepageType} = data;
           return (
             <Fragment>
