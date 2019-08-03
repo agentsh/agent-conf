@@ -6,13 +6,13 @@ import {ImageType} from '../common/types';
 
 const Wrapper = styled.div<{backgroundImage?: ImageType}>`
   width: 100%;
-  background: ${({theme}) => theme.secondaryColor};
+  background: ${({theme, backgroundImage}) => theme.black};
   background-image: ${({backgroundImage}) => (backgroundImage ? `url(${backgroundImage.url})` : '')};
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: black;
-  height: 100vh;
+  height: ${({backgroundImage}) => (backgroundImage ? '100vh' : '500px')};
   position: relative;
   &:after {
     width: 100%;

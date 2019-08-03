@@ -25,7 +25,6 @@ import Tickets from '../components/Tickets';
 
 const youtubeOptions = {
   width: '100%',
-  height: '500',
   playerVars: {
     // https://developers.google.com/youtube/player_parameters
     autoplay: 0,
@@ -126,7 +125,7 @@ const Index: NextPage = () => {
                 </Spaced>
                 <LazyLoad height={200} offset={100}>
                   <BorderedBlock>
-                    <YouTube videoId={'p0ktS5M0yWs'} className={''} containerClassName={''} opts={youtubeOptions} />
+                    <YouTube videoId={'yPucwN9GQgU'} className={''} containerClassName={''} opts={youtubeOptions} />
                   </BorderedBlock>
                 </LazyLoad>
               </ContentWrapper>
@@ -172,10 +171,12 @@ const Index: NextPage = () => {
                       <Spaced multipleTop={0} multipleBottom={0}>
                         <H3 color={theme.black}>25.01. & 26.01. Activity Days in Lech</H3>
                         <FontBig>
-                          Skiing and other winter sport activities.&nbsp;
                           <Link href={'/info/lech'}>
-                            <A>Read more</A>
+                            <A>Read more about the activities in Lech</A>
                           </Link>
+                          <br />
+                          <br />
+                          On Sunday 26th the bus to Dornbirn leaves Lech at 17:00 and arrives in Dornbrin about 18:30.
                         </FontBig>
                       </Spaced>
                     </Padded>

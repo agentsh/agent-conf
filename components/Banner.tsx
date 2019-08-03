@@ -27,14 +27,14 @@ export const query = gql`
   }
 `;
 const BannerRow = styled(Row)`
-  min-height: 80vh;
+  min-height: 50vh;
   width: auto;
 `;
 
 const BannerCol = styled(Col)<{background: string}>`
   padding-top: ${({theme}) => theme.spacing * 10}px;
   padding-bottom: ${({theme}) => theme.spacing * 10}px;
-  height: 80vh;
+  height: 50vh;
   background: url('${({background}) => background}') center center;
   background-size: cover;
   color: white;

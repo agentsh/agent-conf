@@ -2,7 +2,7 @@ import {createGlobalStyle} from './styled';
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background:${props => props.theme.lightGrey};
+    background:${props => props.theme.black};
     margin:0;
     overflow-x:hidden;
     * {
