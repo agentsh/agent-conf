@@ -47,6 +47,7 @@ const Content = styled.div<{lineColor: string}>`
 const SmallTop = styled.span<{color: string}>`
   font-size: 25px;
   color: ${({color}) => color};
+  font-family: Teko;
 `;
 
 const Action = styled.div`
@@ -83,9 +84,9 @@ const HeadlineGroup: FunctionComponent<HeadlineGroupProps> = ({
       <Content lineColor={lineColor}>
         {smallTop && (
           <Row>
-            <Spaced multipleBottom={2} multipleTop={0}>
+            <Spaced multipleBottom={1} multipleTop={0}>
               <Col>
-                <SmallTop color={smallTopColor}>{smallTop.toUpperCase()}</SmallTop>
+                <SmallTop color={smallTopColor}>{smallTop}</SmallTop>
               </Col>
             </Spaced>
           </Row>

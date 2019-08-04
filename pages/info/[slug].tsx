@@ -5,7 +5,7 @@ import React, {Fragment} from 'react';
 import {Query, QueryResult} from 'react-apollo';
 import {Padded, Spaced} from '../../common/Grid';
 import {theme} from '../../common/styled';
-import {H1Small, RichTextWrapper} from '../../common/typography';
+import {H1, RichTextWrapper} from '../../common/typography';
 import BorderedImage from '../../components/BorderedImage';
 import ContentWrapper from '../../components/ContentWrapper';
 import CustomHead from '../../components/CustomHead';
@@ -50,11 +50,11 @@ const Info: NextPage<InfoProps> = ({slug}) => (
           <Header>
             <HeadlineGroup
               headline={
-                <H1Small color={theme.white}>
+                <H1 color={theme.white}>
                   {data.content.headline_row_1}
                   <br />
                   {data.content.headline_row_2}
-                </H1Small>
+                </H1>
               }
             />
           </Header>

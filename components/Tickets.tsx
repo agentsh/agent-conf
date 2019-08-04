@@ -13,12 +13,11 @@ const Tickets: FunctionComponent = (): JSX.Element => {
       <SimpleContentWrapper color={theme.white} background={theme.black}>
         <Spaced multipleTop={5} multipleBottom={5}>
           <HeadlineGroup
+            lineColor={theme.primaryColor}
             headline={
-              <H2 color={theme.white}>
+              <H2 color={theme.primaryColor}>
                 Get <br />
                 Tickets
-                <br />
-                now
               </H2>
             }
           />

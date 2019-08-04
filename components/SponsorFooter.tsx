@@ -46,8 +46,13 @@ const SponsorFooter: FunctionComponent<SponsorFooterProps> = props => (
         <SimpleContentWrapper background={theme.black} color={theme.white}>
           <Spaced multipleBottom={0} multipleTop={3}>
             <HeadlineGroup
-              smallTop={'Not possible without'}
-              headline={<H3 color={theme.white}>Sponsors & Partners</H3>}
+              lineColor={theme.primaryColor}
+              headline={
+                <H3 color={theme.primaryColor}>
+                  Sponsors &<br />
+                  Partners
+                </H3>
+              }
             />
             <Padded multiple={1}>
               <Spaced multipleTop={4} multipleBottom={1}>

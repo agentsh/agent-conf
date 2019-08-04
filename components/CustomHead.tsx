@@ -23,7 +23,6 @@ const CustomHead: FunctionComponent<HeadProps> = (props): JSX.Element => {
       <meta name="description" content={props.description} />
       <meta name="keywords" content={props.keywords} />
       <meta name="robots" content={props.robots} />
-
       <meta property="language" content="de_AT" />
       <meta property="publisher" content="wokers.sh" />
       <meta property="author" content="wokers.sh" />
@@ -32,23 +31,19 @@ const CustomHead: FunctionComponent<HeadProps> = (props): JSX.Element => {
       <meta property="distribution" content="global" />
       <meta property="image" content={props.image} />
       <meta property="format-detection" content="telephone=yes" />
-
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
       <meta property="og:locale" content="de_AT" />
       <meta property="og:image" content={props.image} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={props.url} />
-
       <meta property="DC.Title" content={props.title} />
       <meta property="DC.Publisher" content={props.url} />
       <meta property="DC.Copyright" content={props.url} />
-
       <meta property="twitter:card" content="summary" />
       <meta property="twitter:title" content={props.title} />
       <meta property="twitter:description" content={props.description} />
       <meta property="twitter:image" content={props.image} />
-
       <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
@@ -59,7 +54,7 @@ const CustomHead: FunctionComponent<HeadProps> = (props): JSX.Element => {
       <meta name="msapplication-config" content="/static/favicons/browserconfig.xml" />
       <meta name="theme-color" content="#ffffff" />
       <link rel="stylesheet" type="text/css" href="https://css.tito.io/v1.1" />
-
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Teko&display=swap" rel="stylesheet" />
       <script src="https://js.tito.io/v1" async />
       {/* <script
         dangerouslySetInnerHTML={{
@@ -72,14 +67,13 @@ const CustomHead: FunctionComponent<HeadProps> = (props): JSX.Element => {
             `,
         }}
       /> */}
-
       {props.children}
     </Head>
   );
 };
 
 CustomHead.defaultProps = {
-  title: 'AgentConf 2020 - Machine focused',
+  title: 'AgentConf 2020 - React focused',
   description: `Get unique inspiration from world class engineers.
     Efficiently unleash cross-media information without cross-media value.`,
   robots: 'follow',

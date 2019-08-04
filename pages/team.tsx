@@ -6,7 +6,7 @@ import {FaTwitter} from 'react-icons/fa';
 import {Col, Padded, Row, Spaced} from '../common/Grid';
 import styled, {theme} from '../common/styled';
 import {TeamType} from '../common/types';
-import {H1Small, H2Small, RichTextWrapper} from '../common/typography';
+import {H1, H2, RichTextWrapper} from '../common/typography';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -74,11 +74,11 @@ const Team: FunctionComponent = () => (
           <Header>
             <HeadlineGroup
               headline={
-                <H1Small color={theme.white}>
+                <H1 color={theme.white}>
                   {data.content.headline_row_1}
                   <br />
                   {data.content.headline_row_2}
-                </H1Small>
+                </H1>
               }
             />
           </Header>
@@ -91,10 +91,10 @@ const Team: FunctionComponent = () => (
                   <Fragment key={headline_row_2}>
                     <HeadlineGroup
                       headline={
-                        <H2Small color={theme.black}>
+                        <H2 color={theme.black}>
                           {headline_row_1}
                           <br /> {headline_row_2}
-                        </H2Small>
+                        </H2>
                       }
                       lineColor={theme.black}
                     />

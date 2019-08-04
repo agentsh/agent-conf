@@ -7,21 +7,22 @@ import {Query, QueryResult} from 'react-apollo';
 import LazyLoad from 'react-lazyload';
 import YouTube from 'react-youtube';
 import Fonts from '../common/Fonts';
-import {Col, Padded, Row, Spaced} from '../common/Grid';
+import {Col, ColR, Padded, Row, Spaced} from '../common/Grid';
 import {theme} from '../common/styled';
 import {HomepageType} from '../common/types';
-import {A, FontBig, H1, H2, H3, RichTextWrapper} from '../common/typography';
+import {A, FontBig, H2, H3, RichTextWrapper} from '../common/typography';
 import BorderedBlock from '../components/BorderedBlock';
 import ContentWrapper from '../components/ContentWrapper';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header, {DateInfo, Headline, InfoText, LocationInfo, Slogan, TicketCol} from '../components/Header';
 import HeadlineGroup from '../components/HeadlineGroup';
 import SimpleContentWrapper from '../components/SimpleContentWrapper';
 import Speakers from '../components/Speakers';
 import SponsorBar from '../components/SponsorBar';
 import Talks from '../components/Talks';
 import Tickets from '../components/Tickets';
+import {ButtonLink} from '../common/links';
 
 const youtubeOptions = {
   width: '100%',
@@ -81,19 +82,21 @@ const Index: NextPage = () => {
                 image={homepage.meta_og_image.url}
               />
               <Header backgroundImage={homepage.header_background}>
-                <HeadlineGroup
-                  headline={
-                    <H1 color={theme.white}>
-                      {homepage.header_headline_row_1}
-                      <br />
-                      {homepage.header_headline_row_2}
-                    </H1>
-                  }
-                  smallTop={homepage.header_small_headline}
-                  action={homepage.header_action}
-                  action_name={homepage.header_action_text}
-                  action_desc={homepage.header_action_description}
-                />
+                <Row valign="bottom">
+                  <Col size={{xs: 1, md: 3 / 4}}>
+                    <Slogan>THE INTERNATIONAL EVENT FOR CODING INSPIRATION</Slogan>
+                    <Headline>AgentConf</Headline>
+                    <InfoText>💥 2 days single track conference</InfoText>
+                    <InfoText>⛷ 2 days of skiing</InfoText>
+                    <DateInfo>23th - 26th January&nbsp;2020</DateInfo>
+                    <LocationInfo>Dornbirn & Lech, Austria</LocationInfo>
+                  </Col>
+                  <TicketCol size={{xs: 1, md: 1 / 4}}>
+                    <Link href={'/#tickets'}>
+                      <ButtonLink>get Tickets</ButtonLink>
+                    </Link>
+                  </TicketCol>
+                </Row>
               </Header>
               <SponsorBar uid={'sponsor-bar-2020'} />
               <ContentWrapper
@@ -101,17 +104,7 @@ const Index: NextPage = () => {
                 colorMain={theme.white}
                 colorBottom={theme.black}
                 backgroundContent={theme.white}>
-                <Spaced multipleTop={3} multipleBottom={4}>
-                  <HeadlineGroup
-                    headline={
-                      <H2 color={theme.primaryColor}>
-                        Agent <br />
-                        Conf 2020
-                      </H2>
-                    }
-                    lineColor={theme.primaryColor}
-                    smallTop={'ABOUT THE CONFERENCE'}
-                  />
+                <Spaced multipleTop={7} multipleBottom={4}>
                   <Padded multiple={5}>
                     <Row>
                       <Col size={{xs: 1, md: 0.5}}>

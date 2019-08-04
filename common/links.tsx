@@ -3,16 +3,14 @@ import styled from './styled';
 export const ButtonLink = styled.a`
   color: white;
   text-decoration: none;
-
   background: ${props => props.theme.primaryColor};
   padding: 10px 15px;
   text-transform: uppercase;
   display: inline-block;
-  border-radius: 36px;
   cursor: pointer;
   padding: 12px 40px;
   &:hover {
-    background: ${props => props.theme.primaryColor};
+    background: ${({theme}) => theme.primaryColor};
   }
 `;
 

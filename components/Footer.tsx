@@ -32,6 +32,11 @@ const Logo = styled.img`
   width: 100px;
 `;
 
+const AlpineInfo = styled.p`
+  font-family: Teko;
+  font-size: 20px;
+  letter-spacing: 1px;
+`;
 export interface FooterProps {
   hideSponsors?: boolean;
 }
@@ -87,8 +92,10 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
       </Nav>
       <CopyRight>
         <VCenterWrapper>
-          <p>Get unique inspiration from world class engineers.</p>
-          <p>© 2019 Alpine Conferences. All Rights Reserved.</p>
+          <AlpineInfo>
+            Get unique inspiration from world class engineers.
+            <br />© 2019 Alpine Conferences. All Rights Reserved.
+          </AlpineInfo>
         </VCenterWrapper>
       </CopyRight>
     </Fragment>

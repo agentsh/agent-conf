@@ -2,12 +2,14 @@ import {createGlobalStyle} from './styled';
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background:${props => props.theme.black};
+    background:${({theme}) => theme.black};
     margin:0;
     overflow-x:hidden;
     * {
+      font-size: 18px;
+      line-height: 24px;
       box-sizing: border-box;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     /* Position and sizing of burger button */

@@ -3,8 +3,8 @@ import Grid from 'styled-components-grid';
 import styled, {media} from './styled';
 
 export const Row = styled(Grid)`
-  margin-left: -${props => props.theme.spacing}px;
-  margin-right: -${props => props.theme.spacing}px;
+  margin-left: -${({theme}) => theme.spacing}px;
+  margin-right: -${({theme}) => theme.spacing}px;
   width: 100%;
 `;
 
@@ -30,7 +30,9 @@ export const Container = styled.div`
   display: block;
   margin: 0 auto;
   width: 1024px;
-  max-width: 90%;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 100%;
 `;
 
 export const Spaced = styled.div<{multipleTop: number; multipleBottom: number}>`

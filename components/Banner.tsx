@@ -3,11 +3,11 @@ import Link from 'next/link';
 import {RichText} from 'prismic-reactjs';
 import React from 'react';
 import {Query, QueryResult} from 'react-apollo';
-import {Col, Container, Padded, Row, Spaced, VCenterWrapper, VCenterWrapperAbsolute} from '../common/Grid';
+import {Col, Container, Padded, Row, Spaced, VCenterWrapperAbsolute} from '../common/Grid';
 import {ButtonLink} from '../common/links';
 import styled, {theme} from '../common/styled';
 import {BannerType} from '../common/types';
-import {H2Small, RichTextWrapper} from '../common/typography';
+import {H2, RichTextWrapper} from '../common/typography';
 import HeadlineGroup from './HeadlineGroup';
 
 export const query = gql`
@@ -34,7 +34,8 @@ const BannerRow = styled(Row)`
 const BannerCol = styled(Col)<{background: string}>`
   padding-top: ${({theme}) => theme.spacing * 10}px;
   padding-bottom: ${({theme}) => theme.spacing * 10}px;
-  height: 50vh;
+  height: 800px;
+  max-height: 100vh;
   background: url('${({background}) => background}') center center;
   background-size: cover;
   color: white;
@@ -46,7 +47,10 @@ const BannerCol = styled(Col)<{background: string}>`
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(to top, ${({theme}) => theme.black} 0%, ${({theme}) => theme.white}40 100%);
+    background: linear-gradient(to bottom, 
+                                ${({theme}) => theme.black} 0%, 
+                                ${({theme}) => theme.white}40 10%, 
+                                ${({theme}) => theme.black} 100%);
     height: 100%;
     z-index: 1;
   }
@@ -69,7 +73,7 @@ const Banner: React.SFC<TicketBannerProps> = props => (
                 {(banner.small_headline || banner.headline) && (
                   <HeadlineGroup
                     smallTop={banner.small_headline}
-                    headline={<H2Small color={theme.secondaryColor}>{banner.headline}</H2Small>}
+                    headline={<H2 color={theme.white}>{banner.headline}</H2>}
                   />
                 )}
                 <Padded multiple={5}>

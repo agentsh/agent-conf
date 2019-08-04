@@ -4,13 +4,12 @@ import {RichText} from 'prismic-reactjs';
 import React, {Fragment, useEffect} from 'react';
 import {Query, QueryResult} from 'react-apollo';
 import LazyLoad from 'react-lazyload';
-import YouTube from 'react-youtube';
 import Fonts from '../common/Fonts';
 import {Col, Padded, Row, Spaced} from '../common/Grid';
 import {theme} from '../common/styled';
 import {HomepageType} from '../common/types';
 import {H1, H2, H3, RichTextWrapper} from '../common/typography';
-import BorderedBlock from '../components/BorderedBlock';
+import BorderedImage from '../components/BorderedImage';
 import ContentWrapper from '../components/ContentWrapper';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
@@ -21,15 +20,6 @@ import Speakers from '../components/Speakers';
 import SponsorBar from '../components/SponsorBar';
 import Talks from '../components/Talks';
 import Tickets from '../components/Tickets';
-
-const youtubeOptions = {
-  width: '100%',
-  height: '500',
-  playerVars: {
-    // https://developers.google.com/youtube/player_parameters
-    autoplay: 0,
-  },
-};
 
 export const indexQuery = gql`
   {
@@ -101,45 +91,17 @@ const Index: NextPage = () => {
                 colorMain={theme.white}
                 colorBottom={theme.black}
                 backgroundContent={theme.white}>
-                <Spaced multipleTop={3} multipleBottom={4}>
-                  <HeadlineGroup
-                    headline={
-                      <H2 color={theme.primaryColor}>
-                        Agent <br />
-                        Conf 2019
-                      </H2>
-                    }
-                    lineColor={theme.primaryColor}
-                    smallTop={'ABOUT THE CONFERENCE'}
-                  />
-                  <Padded multiple={5}>
-                    <Row>
-                      <Col size={{xs: 1, md: 0.5}}>
-                        <RichTextWrapper>{RichText.render(homepage.about_content_left)}</RichTextWrapper>
-                      </Col>
-                      <Col size={{xs: 1, md: 0.5}}>
-                        <RichTextWrapper>{RichText.render(homepage.about_content_right)}</RichTextWrapper>
-                      </Col>
-                    </Row>
-                  </Padded>
+                <Spaced multipleTop={5} multipleBottom={5}>
+                  <RichTextWrapper>{RichText.render(homepage.about_content_left)}</RichTextWrapper>
+                  <RichTextWrapper>{RichText.render(homepage.about_content_right)}</RichTextWrapper>
                 </Spaced>
                 <LazyLoad height={200} offset={100}>
-                  <BorderedBlock>
-                    <YouTube videoId={'p0ktS5M0yWs'} className={''} containerClassName={''} opts={youtubeOptions} />
-                  </BorderedBlock>
+                  <BorderedImage src={homepage.about_image.url} alt={homepage.about_image.alt} />
                 </LazyLoad>
               </ContentWrapper>
               <SimpleContentWrapper background={theme.black} color={theme.white}>
                 <Spaced multipleTop={5} multipleBottom={5}>
-                  <HeadlineGroup
-                    headline={
-                      <H2 color={theme.white}>
-                        Worldclass
-                        <br />
-                        Speakers
-                      </H2>
-                    }
-                  />
+                  <HeadlineGroup headline={<H2 color={theme.white}>Speakers</H2>} />
                   <Speakers slug={'speakers-2019'} />
                 </Spaced>
               </SimpleContentWrapper>
@@ -150,12 +112,7 @@ const Index: NextPage = () => {
                   colorBottom={theme.black}
                   backgroundContent={theme.white}>
                   <HeadlineGroup
-                    headline={
-                      <H2 color={theme.primaryColor}>
-                        The <br />
-                        Schedule
-                      </H2>
-                    }
+                    headline={<H2 color={theme.primaryColor}>The Schedule</H2>}
                     lineColor={theme.primaryColor}
                   />
                   <Spaced multipleTop={3} multipleBottom={5}>
@@ -179,7 +136,7 @@ const Index: NextPage = () => {
 };
 Index.getInitialProps = async ({res}) => {
   if (res) {
-    res.setHeader('Cache-Control', 's-maxage=100, stale-while-revalidate');
+    res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate');
   }
   return {};
 };

@@ -9,7 +9,7 @@ const TicketWrapper = styled.div`
     margin: 0 !important;
     .tito-ticket.row {
       background: rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
+      border-radius: 0 !important;
       border: none !important;
       padding: 10px 15px !important;
       margin-bottom: 20px !important;
@@ -25,7 +25,8 @@ const TicketWrapper = styled.div`
   .tito-submit {
     background: ${props => props.theme.primaryColor}!important;
     border: none !important;
-    border-radius: 30px !important;
+    text-transform: uppercase;
+    border-radius: 0 !important;
     &:hover {
       background: ${props => props.theme.primaryColor}!important;
     }
