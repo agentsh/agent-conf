@@ -86,8 +86,13 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/outdoor'}>
-                      <NavLink>Outdoor</NavLink>
+                    <Link href={'/info/dornbirn'}>
+                      <NavLink>Dornbirn</NavLink>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={this.hideNav}>
+                    <Link href={'/info/lech'}>
+                      <NavLink>Lech</NavLink>
                     </Link>
                   </MenuItem>
                   {/* <MenuItem onClick={this.hideNav}>

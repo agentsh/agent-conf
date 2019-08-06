@@ -47,7 +47,7 @@ const Speakers: FunctionComponent<TicketSpeakersProps> = props => (
                 speakers.speakers.length > 0 &&
                 speakers.speakers.map((elem, idx: number) => {
                   return (
-                    <Col size={{xs: 1, md: 1 / 2, lg: 1 / 3}} key={idx}>
+                    <Col size={{xs: 1, sm: 1 / 2, lg: 1 / 3}} key={idx}>
                       <Speaker speaker={elem.speaker} />
                     </Col>
                   );

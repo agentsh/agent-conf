@@ -125,7 +125,7 @@ const Index: NextPage = () => {
                       lineColor={theme.primaryColor}
                     />
                     <div style={{padding: '0 20px'}}>
-                      <Spaced multipleTop={1} multipleBottom={5}>
+                      <Spaced multipleTop={0} multipleBottom={5}>
                         <H3 color={theme.black}>21.02.2019 Conference Day</H3>
                         <Talks uid="talks-2019-1" />
                       </Spaced>

@@ -26,6 +26,7 @@ export const H2css = css`
   margin: 0;
   padding: 0;
   ${media.md} {
+    margin: 20px 0 15px 0;
     font-size: 40px;
     line-height: 50px;
   }
@@ -39,6 +40,7 @@ export const H3css = css`
   font-size: 26px;
   font-weight: normal;
   ${media.md} {
+    margin: 20px 0 15px 0;
     font-size: 40px;
     line-height: 50px;
   }

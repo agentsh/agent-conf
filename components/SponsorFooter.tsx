@@ -55,9 +55,9 @@ const SponsorFooter: FunctionComponent<SponsorFooterProps> = props => (
               }
             />
             <Padded multiple={1}>
-              <Spaced multipleTop={4} multipleBottom={1}>
+              <Spaced multipleTop={2} multipleBottom={1}>
                 <Row halign="center">
-                  <Col size={{xs: 1 / 2, md: 1 / 3}} key={topSponsor.name} valign="center">
+                  <Col size={{xs: 1, md: 1 / 3}} key={topSponsor.name} valign="center">
                     <A href={topSponsor.url.url} target="_blank">
                       <LazyLoad height={150} offset={100}>
                         <SponsorImage src={topSponsor.logo.url} alt={topSponsor.name} />

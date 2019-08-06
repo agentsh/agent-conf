@@ -40,7 +40,7 @@ const PartnerFooter: FunctionComponent<SponsorFooterProps> = props => (
       const {elements}: {elements: SponsorType[]} = data.sponsors;
       return (
         <SimpleContentWrapper background={theme.black} color={theme.white}>
-          <Spaced multipleBottom={5} multipleTop={2}>
+          <Spaced multipleBottom={5} multipleTop={0}>
             <Padded multiple={5}>
               <Row halign="center" valign="center">
                 {elements.map(sponsor => {
