@@ -45,8 +45,7 @@ const Content = styled.div`
   width: 1024px;
   max-width: 100%;
   text-align: left;
-  transform: translate(0, 0);
-  padding: 15px;
+  /* padding: 15px; */
 `;
 
 const Logo = styled.img`
@@ -99,7 +98,10 @@ export const LocationInfo = styled.div`
 export const Slogan = styled.div`
   display: none;
   ${media.md} {
-    font-size: 40px;
+    font-size: 35px;
+    letter-spacing: 2px;
+    font-family: Teko;
+    display: block;
   }
 `;
 export const Headline = styled(H1)`

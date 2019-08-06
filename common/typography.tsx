@@ -117,10 +117,26 @@ export const RichTextWrapper = styled.div`
   a:hover {
     ${Acss};
   }
+  div[data-oembed-type="video"]{
+    overflow-x:hidden;
+    ${media.md} {
+    width: 50%;
+    float:left;
+    margin-bottom:30px;
+    iframe{
+      display: block;
+      margin:0 auto;
+      width:100%;
+    }
+  }
+  }
 `;
 
 export const Time = styled.div`
-  font-size: 22px;
+  font-size: 16px;
+  ${media.md} {
+    font-size: 22px;
+  }
 `;
 
 export const FontBig = styled.div`
@@ -133,7 +149,7 @@ export const FontBig = styled.div`
 `;
 
 export const SessionTitle = styled.div`
-  font-size: 22px;
+  font-size: 16px;
   font-weight: bold;
   ${media.md} {
     font-size: 22px;

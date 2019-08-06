@@ -5,7 +5,7 @@ import React, {Fragment, useEffect} from 'react';
 import {Query, QueryResult} from 'react-apollo';
 import LazyLoad from 'react-lazyload';
 import Fonts from '../common/Fonts';
-import {Col, Padded, Row, Spaced} from '../common/Grid';
+import {Spaced} from '../common/Grid';
 import {theme} from '../common/styled';
 import {HomepageType} from '../common/types';
 import {H1, H2, H3, RichTextWrapper} from '../common/typography';
@@ -68,7 +68,7 @@ const Index: NextPage = () => {
               <CustomHead
                 title={homepage.meta_title}
                 description={homepage.meta_description}
-                image={homepage.meta_og_image.url}
+                image={homepage.meta_og_image ? homepage.meta_og_image.url : null}
               />
               <Header backgroundImage={homepage.header_background}>
                 <HeadlineGroup
@@ -101,27 +101,39 @@ const Index: NextPage = () => {
               </ContentWrapper>
               <SimpleContentWrapper background={theme.black} color={theme.white}>
                 <Spaced multipleTop={5} multipleBottom={5}>
-                  <HeadlineGroup headline={<H2 color={theme.white}>Speakers</H2>} />
+                  <HeadlineGroup
+                    headline={
+                      <H2 color={theme.white}>
+                        Worldclass
+                        <br />
+                        Speakers
+                      </H2>
+                    }
+                  />
                   <Speakers slug={'speakers-2019'} />
                 </Spaced>
               </SimpleContentWrapper>
               <div id="schedule">
                 <ContentWrapper
                   colorTop={theme.black}
-                  colorMain={theme.white}
+                  colorMain={theme.black}
                   colorBottom={theme.black}
                   backgroundContent={theme.white}>
-                  <HeadlineGroup
-                    headline={<H2 color={theme.primaryColor}>The Schedule</H2>}
-                    lineColor={theme.primaryColor}
-                  />
-                  <Spaced multipleTop={3} multipleBottom={5}>
-                    <H3 color={theme.black}>21.02.2019 Conference Day</H3>
-                    <Talks uid="talks-2019-1" />
-                  </Spaced>
-                  <Spaced multipleTop={0} multipleBottom={0}>
-                    <H3 color={theme.black}>22.02.2019 Conference Day</H3>
-                    <Talks uid="talks-2019-2" />
+                  <Spaced multipleBottom={4} multipleTop={2}>
+                    <HeadlineGroup
+                      headline={<H2 color={theme.primaryColor}>The Schedule</H2>}
+                      lineColor={theme.primaryColor}
+                    />
+                    <div style={{padding: '0 20px'}}>
+                      <Spaced multipleTop={1} multipleBottom={5}>
+                        <H3 color={theme.black}>21.02.2019 Conference Day</H3>
+                        <Talks uid="talks-2019-1" />
+                      </Spaced>
+                      <Spaced multipleTop={0} multipleBottom={0}>
+                        <H3 color={theme.black}>22.02.2019 Conference Day</H3>
+                        <Talks uid="talks-2019-2" />
+                      </Spaced>
+                    </div>
                   </Spaced>
                 </ContentWrapper>
               </div>

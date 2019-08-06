@@ -7,7 +7,8 @@ import {Query, QueryResult} from 'react-apollo';
 import LazyLoad from 'react-lazyload';
 import YouTube from 'react-youtube';
 import Fonts from '../common/Fonts';
-import {Col, ColR, Padded, Row, Spaced} from '../common/Grid';
+import {Col, Padded, Row, Spaced} from '../common/Grid';
+import {ButtonLink} from '../common/links';
 import {theme} from '../common/styled';
 import {HomepageType} from '../common/types';
 import {A, FontBig, H2, H3, RichTextWrapper} from '../common/typography';
@@ -22,7 +23,6 @@ import Speakers from '../components/Speakers';
 import SponsorBar from '../components/SponsorBar';
 import Talks from '../components/Talks';
 import Tickets from '../components/Tickets';
-import {ButtonLink} from '../common/links';
 
 const youtubeOptions = {
   width: '100%',
@@ -79,7 +79,7 @@ const Index: NextPage = () => {
               <CustomHead
                 title={homepage.meta_title}
                 description={homepage.meta_description}
-                image={homepage.meta_og_image.url}
+                image={homepage.meta_og_image ? homepage.meta_og_image.url : null}
               />
               <Header backgroundImage={homepage.header_background}>
                 <Row valign="bottom">
@@ -139,10 +139,10 @@ const Index: NextPage = () => {
               <div id="schedule">
                 <ContentWrapper
                   colorTop={theme.black}
-                  colorMain={theme.white}
+                  colorMain={theme.black}
                   colorBottom={theme.black}
                   backgroundContent={theme.white}>
-                  <Spaced multipleBottom={4} multipleTop={4}>
+                  <Spaced multipleBottom={4} multipleTop={2}>
                     <HeadlineGroup
                       headline={
                         <H2 color={theme.primaryColor}>
@@ -152,8 +152,8 @@ const Index: NextPage = () => {
                       }
                       lineColor={theme.primaryColor}
                     />
-                    <Padded multiple={5}>
-                      <Spaced multipleTop={3} multipleBottom={3}>
+                    <div style={{padding: '0 20px'}}>
+                      <Spaced multipleTop={2} multipleBottom={3}>
                         <H3 color={theme.black}>23.01. Conference Day</H3>
                         <Talks uid="schedule-2020-day-1" />
                       </Spaced>
@@ -172,7 +172,7 @@ const Index: NextPage = () => {
                           On Sunday 26th the bus to Dornbirn leaves Lech at 17:00 and arrives in Dornbrin about 18:30.
                         </FontBig>
                       </Spaced>
-                    </Padded>
+                    </div>
                   </Spaced>
                 </ContentWrapper>
               </div>

@@ -69,7 +69,7 @@ const Team: FunctionComponent = () => (
           <CustomHead
             title={data.content.meta_title}
             description={data.content.meta_description}
-            image={data.content.meta_og_image.url}
+            image={data.content.meta_og_image ? data.content.meta_og_image.url : null}
           />
           <Header>
             <HeadlineGroup

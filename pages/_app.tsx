@@ -90,16 +90,11 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                       <NavLink>Outdoor</NavLink>
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/about'}>
-                      <NavLink>About</NavLink>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem onClick={this.hideNav}>
+                  {/* <MenuItem onClick={this.hideNav}>
                     <Link href={'/team'}>
                       <NavLink>Team</NavLink>
                     </Link>
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem onClick={this.hideNav}>
                     <Link href={'/info/coc'}>
                       <NavLink>Code of Conduct</NavLink>
@@ -108,6 +103,11 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                   <MenuItem onClick={this.hideNav}>
                     <Link href={'/agent-conf-2019'}>
                       <NavLink>AgentConf 2019</NavLink>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={this.hideNav}>
+                    <Link href={'/info/disclaimer'}>
+                      <NavLink>Disclaimer</NavLink>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>

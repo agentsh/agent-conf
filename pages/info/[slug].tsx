@@ -19,6 +19,7 @@ import Tickets from '../../components/Tickets';
 export const query = gql`
   query content($uid: String!) {
     content(uid: $uid, lang: "en-us") {
+      header_background
       headline_row_1
       headline_row_2
       content_1
@@ -45,9 +46,9 @@ const Info: NextPage<InfoProps> = ({slug}) => (
           <CustomHead
             title={data.content.meta_title}
             description={data.content.meta_description}
-            image={data.content.meta_og_image.url}
+            image={data.content.meta_og_image ? data.content.meta_og_image.url : null}
           />
-          <Header>
+          <Header backgroundImage={data.content.header_background}>
             <HeadlineGroup
               headline={
                 <H1 color={theme.white}>
@@ -63,7 +64,7 @@ const Info: NextPage<InfoProps> = ({slug}) => (
           <ContentWrapper
             colorTop={theme.white}
             colorMain={theme.white}
-            colorBottom={data.content.content_2 ? theme.lightGrey : theme.white}
+            colorBottom={data.content.content_2 ? theme.lightGrey : theme.black}
             backgroundContent={theme.white}>
             <Padded multiple={5}>
               <Spaced multipleBottom={4} multipleTop={4}>
@@ -90,7 +91,7 @@ const Info: NextPage<InfoProps> = ({slug}) => (
 );
 
 Info.getInitialProps = async ({query}: NextPageContext) => {
-  return {slug: query.slug.toString()};
+  return {slug: query.slug.toString().toLowerCase()};
 };
 
 export default Info;
