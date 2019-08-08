@@ -21,7 +21,6 @@ const TalkRow = styled(Row)<{type: string}>`
   width: 100%;
   background: ${({theme, type}) => (type === 'Break' ? theme.lightGrey : theme.white)};
   color: ${({theme, type}) => (type === 'Break' ? theme.black : theme.black)};
-  font-style: ${({type}) => (type === 'Break' ? 'oblique' : 'normal')};
   border-bottom: 2px solid ${({theme, type}) => (type === 'Break' ? theme.black : theme.lightGrey)};
   text-transform: ${({type}) => (type === 'Break' ? 'uppercase' : 'normal')};
   margin: 0;
@@ -58,15 +57,15 @@ const Talk: FunctionComponent<TalkProps> = ({
           </SessionTitle>
           {speaker && (
             <Row>
-              <Col size={{xs: 1, sm: 1, md: 0.4, lg: 0.4}}>
+              <Col size={{xs: 0.8, sm: 0.8, md: 0.4, lg: 0.4}}>
                 <SpeakerPreview small={true} speaker={speaker} />
               </Col>
-              <Col size={{xs: 1, sm: 1, md: 0.4, lg: 0.4}}>
+              <Col size={{xs: 0.8, sm: 0.8, md: 0.4, lg: 0.4}}>
                 {speaker_2 && <SpeakerPreview small={true} speaker={speaker_2} />}
               </Col>
 
               {video && (
-                <Col size={{xs: 1, sm: 1, md: 0.2, lg: 0.2}}>
+                <Col size={{xs: 0.2, sm: 0.2, md: 0.2, lg: 0.2}}>
                   <VideoLink href={video.url} target="blank" rel="noopener noreferrer">
                     ▶
                   </VideoLink>

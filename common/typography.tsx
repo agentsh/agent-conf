@@ -135,9 +135,9 @@ export const RichTextWrapper = styled.div`
 `;
 
 export const Time = styled.div`
-  font-size: 16px;
+  font-size: 15px;
   ${media.md} {
-    font-size: 22px;
+    font-size: 18px;
   }
 `;
 
@@ -151,9 +151,9 @@ export const FontBig = styled.div`
 `;
 
 export const SessionTitle = styled.div`
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   ${media.md} {
-    font-size: 22px;
+    font-size: 18px;
   }
 `;

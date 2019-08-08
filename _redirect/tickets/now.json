@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "agent-conf-tickets-redirect",
+  "alias": ["tickets.agent.sh"],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": {"Location": "https://ti.to/ac/agentconf20"}
+    }
+  ]
+}

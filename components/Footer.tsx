@@ -9,16 +9,16 @@ import Link from 'next/link';
 import PartnerFooter from './PartnerFooter';
 
 const Nav = styled.div`
-  padding: ${props => props.theme.spacing * 2}px 0;
+  padding: ${({theme}) => theme.spacing * 2}px 0;
   background-size: cover;
-  background: ${props => props.theme.black};
-  color: ${props => props.theme.white};
+  background: ${({theme}) => theme.black};
+  color: ${({theme}) => theme.white};
 `;
 
 const CopyRight = styled.div`
-  padding: 0px ${props => props.theme.spacing}px;
+  padding: 0px ${({theme}) => theme.spacing}px;
   min-height: 100px;
-  background: ${props => props.theme.black};
+  background: ${({theme}) => theme.black};
   color: white;
   display: flex;
   font-size: 14px;
@@ -62,8 +62,8 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
               <Link href={'/index#schedule'}>
                 <FooterLink>Schedule</FooterLink>
               </Link>
-              <Link href={'/info/skiing'}>
-                <FooterLink>skiing</FooterLink>
+              <Link href={'/info/lech'}>
+                <FooterLink>Skiing</FooterLink>
               </Link>
               <Link href={'/info/venue'}>
                 <FooterLink>Venue</FooterLink>
@@ -71,12 +71,12 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
               <Link href={'/index#tickets'}>
                 <FooterLink>Get Tickets</FooterLink>
               </Link>
-              <Link href={'/info/about'}>
-                <FooterLink>About</FooterLink>
-              </Link>
-              <Link href={'/team'}>
-                <FooterLink>Team</FooterLink>
-              </Link>
+              {/* <Link href={'/info/about'}> */}
+              {/*   <FooterLink>About</FooterLink> */}
+              {/* </Link> */}
+              {/* <Link href={'/team'}> */}
+              {/*   <FooterLink>Team</FooterLink> */}
+              {/* </Link> */}
               <Link href={'/info/coc'}>
                 <FooterLink>Code of Conduct</FooterLink>
               </Link>

@@ -88,7 +88,7 @@ const Index: NextPage = () => {
                     <Headline>AgentConf</Headline>
                     <InfoText>💥 2 days single track conference</InfoText>
                     <InfoText>⛷ 2 days of skiing</InfoText>
-                    <DateInfo>23th - 26th January&nbsp;2020</DateInfo>
+                    <DateInfo>23rd - 26th January&nbsp;2020</DateInfo>
                     <LocationInfo>Dornbirn & Lech, Austria</LocationInfo>
                   </Col>
                   <TicketCol size={{xs: 1, md: 1 / 4}}>
@@ -169,7 +169,8 @@ const Index: NextPage = () => {
                           </Link>
                           <br />
                           <br />
-                          On Sunday 26th the bus to Dornbirn leaves Lech at 17:00 and arrives in Dornbrin about 18:30.
+                          On Sunday 26th the bus to Dornbirn leaves Lech at 17:00 and arrives in Dornbirn at about
+                          18:30.
                         </FontBig>
                       </Spaced>
                     </div>

@@ -1,0 +1,20 @@
+agent.sh	 SOA	ns1.easyname.eu hostmaster@easyname.eu 2019080703		10800	
+agent.sh	 NS	ns1.easyname.eu		3600	
+agent.sh	 NS	ns2.easyname.eu		3600	
+agent.sh	 TXT	google-site-verification=Y8zhbiwDdhytb-4tMb2dYpY5L3tRN6J3...		3600	  
+agent.sh	 TXT	v=spf1 include:spf.easyname.com -all		3600	  
+7072998e30af80fb486d3fd34cf31b90.blog.agent.sh	 CNAME	ed10c8fa73be33dc24bee100b5fa28a0a6ecaa33.comodoca.com		3600	  
+blog.agent.sh	 A	52.0.16.118		3600	  
+blog.agent.sh	 A	52.1.119.170		3600	  
+blog.agent.sh	 A	52.1.147.205		3600	  
+blog.agent.sh	 A	52.1.173.203		3600	  
+blog.agent.sh	 A	52.4.145.119		3600	  
+blog.agent.sh	 A	52.4.175.111		3600	  
+blog.agent.sh	 A	52.4.225.124		3600	  
+blog.agent.sh	 A	52.4.240.221		3600	  
+blog.agent.sh	 A	52.4.38.70		3600	  
+blog.agent.sh	 A	52.5.181.79		3600	  
+blog.agent.sh	 A	52.6.3.192		3600	  
+blog.agent.sh	 A	52.6.46.142		3600	  
+conf.agent.sh	 A	185.51.8.72		3600	  
+tickets.agent.sh	 A	185.51.8.72		3600	  
