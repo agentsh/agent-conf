@@ -76,7 +76,7 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/venue'}>
+                    <Link href={'/info/[slug]'} as={'/info/venue'}>
                       <NavLink>Venue</NavLink>
                     </Link>
                   </MenuItem>
@@ -86,12 +86,12 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/dornbirn'}>
+                    <Link href={'/info/[slug]'} as={'/info/dornbirn'}>
                       <NavLink>Dornbirn</NavLink>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/lech'}>
+                    <Link href={'/info/[slug]'} as={'/info/lech'}>
                       <NavLink>Lech</NavLink>
                     </Link>
                   </MenuItem>
@@ -101,7 +101,7 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem> */}
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/coc'}>
+                    <Link href={'/info/[slug]'} as={'/info/coc'}>
                       <NavLink>Code of Conduct</NavLink>
                     </Link>
                   </MenuItem>
@@ -111,12 +111,12 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/disclaimer'}>
+                    <Link href={'/info/[slug]'} as={'/info/disclaimer'}>
                       <NavLink>Disclaimer</NavLink>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/info/contact'}>
+                    <Link href={'/info/[slug]'} as={'/info/contact'}>
                       <NavLink>Contact Us</NavLink>
                     </Link>
                   </MenuItem>

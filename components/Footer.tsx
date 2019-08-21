@@ -62,10 +62,10 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
               <Link href={'/index#schedule'}>
                 <FooterLink>Schedule</FooterLink>
               </Link>
-              <Link href={'/info/lech'}>
+              <Link href={'/info/[slug]'} as={'/info/lech'}>
                 <FooterLink>Skiing</FooterLink>
               </Link>
-              <Link href={'/info/venue'}>
+              <Link href={'/info/[slug]'} as={'/info/venue'}>
                 <FooterLink>Venue</FooterLink>
               </Link>
               <Link href={'/index#tickets'}>
@@ -77,13 +77,13 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
               {/* <Link href={'/team'}> */}
               {/*   <FooterLink>Team</FooterLink> */}
               {/* </Link> */}
-              <Link href={'/info/coc'}>
+              <Link href={'/info/[slug]'} as={'/info/coc'}>
                 <FooterLink>Code of Conduct</FooterLink>
               </Link>
-              <Link href={'/agent-conf-2019'}>
+              <Link href={'/agent-conf-2019'} as={'/agent-conf-2019'}>
                 <FooterLink>Agent Conf 2019</FooterLink>
               </Link>
-              <Link href={'/info/contact'}>
+              <Link href={'/info/[slug]'} as={'/info/contact'}>
                 <FooterLink>Contact Us</FooterLink>
               </Link>
             </Col>
