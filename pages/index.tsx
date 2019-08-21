@@ -164,7 +164,7 @@ const Index: NextPage = () => {
                       <Spaced multipleTop={0} multipleBottom={0}>
                         <H3 color={theme.black}>25.01. & 26.01. Activity Days in Lech</H3>
                         <FontBig>
-                          <Link href={'/info/lech'}>
+                          <Link href={'/info/[slug]'} as={'/info/lech'}>
                             <A>Read more about the activities in Lech</A>
                           </Link>
                           <br />

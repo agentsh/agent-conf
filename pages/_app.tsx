@@ -95,18 +95,13 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                       <NavLink>Lech</NavLink>
                     </Link>
                   </MenuItem>
-                  {/* <MenuItem onClick={this.hideNav}>
-                    <Link href={'/team'}>
-                      <NavLink>Team</NavLink>
-                    </Link>
-                  </MenuItem> */}
                   <MenuItem onClick={this.hideNav}>
                     <Link href={'/info/[slug]'} as={'/info/coc'}>
                       <NavLink>Code of Conduct</NavLink>
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
-                    <Link href={'/agent-conf-2019'}>
+                    <Link href={'/agent-conf-2019'} as={'/agent-conf-2019'}>
                       <NavLink>AgentConf 2019</NavLink>
                     </Link>
                   </MenuItem>
