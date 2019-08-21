@@ -26,12 +26,12 @@ export const query = gql`
     }
   }
 `;
-const BannerRow = styled(Row)`
+const BannerRow = styled.div`
   min-height: 50vh;
   width: auto;
 `;
 
-const BannerCol = styled(Col)<{background: string}>`
+const BannerCol = styled.div<{background: string}>`
   padding-top: ${({theme}) => theme.spacing * 10}px;
   padding-bottom: ${({theme}) => theme.spacing * 10}px;
   height: 800px;
@@ -67,7 +67,7 @@ const Banner: React.SFC<TicketBannerProps> = props => (
       const {banner}: {banner: BannerType} = data;
       return (
         <BannerRow>
-          <BannerCol valign="center" background={banner.foto.url}>
+          <BannerCol background={banner.foto.url}>
             <VCenterWrapperAbsolute>
               <Container>
                 {(banner.small_headline || banner.headline) && (
