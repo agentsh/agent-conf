@@ -6,6 +6,8 @@ import {theme} from '../common/styled';
 import HeadlineGroup from './HeadlineGroup';
 import SimpleContentWrapper from './SimpleContentWrapper';
 import TicketWrapper from './TicketWrapper';
+import Link from 'next/link';
+import {ButtonLink} from '../common/links';
 
 const Tickets: FunctionComponent = (): JSX.Element => {
   return (
@@ -29,7 +31,9 @@ const Tickets: FunctionComponent = (): JSX.Element => {
             </p>
             <TicketWrapper>
               <tito-widget event="ac/agentconf20">
-                Call the Guntram (+43 677 62 77 4626) if this text is visible...
+                <a href="https://ti.to/ac/agentconf20" target="_blank" rel="noopener noreferrer">
+                  <ButtonLink>get Tickets</ButtonLink>
+                </a>
               </tito-widget>
             </TicketWrapper>
           </Padded>
