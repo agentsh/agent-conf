@@ -22,15 +22,6 @@ const MenuItem = styled.div`
 
 class MyApp extends App<CustomAppProps, CustomAppContext> {
   state = {showMenu: false};
-  static async getInitialProps({Component, ctx}: AppContextType) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return {pageProps};
-  }
   handleStateChange = state => {
     this.setState({showMenu: state.isOpen});
   };

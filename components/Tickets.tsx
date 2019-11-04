@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 
-import {H2} from '../common/typography';
+import {H2, ColoredBold} from '../common/typography';
 import {Padded, Spaced} from '../common/Grid';
 import {theme} from '../common/styled';
 import HeadlineGroup from './HeadlineGroup';
@@ -29,6 +29,7 @@ const Tickets: FunctionComponent = (): JSX.Element => {
               <br />
               Get unique inspiration from world class engineers.
             </p>
+
             <TicketWrapper>
               <tito-widget event="ac/agentconf20">
                 <a href="https://ti.to/ac/agentconf20" target="_blank" rel="noopener noreferrer">
@@ -36,6 +37,15 @@ const Tickets: FunctionComponent = (): JSX.Element => {
                 </a>
               </tito-widget>
             </TicketWrapper>
+            <p>
+              <ColoredBold>** Ski Addon includes</ColoredBold>
+              <ul>
+                <li>Transfer Dornbin to Lech</li>
+                <li>2 nights in the Hostel</li>
+                <li>2 skiing tickets</li>
+                <li>Transfer back to Dornbirn</li>
+              </ul>
+            </p>
           </Padded>
         </Spaced>
       </SimpleContentWrapper>

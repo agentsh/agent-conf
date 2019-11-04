@@ -157,3 +157,10 @@ export const SessionTitle = styled.div`
     font-size: 18px;
   }
 `;
+
+export const ColoredBold = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: ${({theme}) => theme.primaryColor};
+`;
