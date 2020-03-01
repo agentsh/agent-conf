@@ -1,6 +1,6 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from '../common/styled';
-import {SpeakerType} from '../common/types';
+import { SpeakerType } from '../common/types';
 import LazyLoad from 'react-lazyload';
 
 const SmallWrapper = styled.div`
@@ -22,7 +22,7 @@ const SpeakerName = styled.div`
   display: flex;
   flex: 1;
   align-self: center;
-  padding: 0 20px;
+  padding: 0 10px;
   color: ${props => props.theme.primaryColor};
   font-weight: bold;
 `;
@@ -31,7 +31,7 @@ export interface SpeakerPreviewProps {
   small: boolean;
 }
 
-const SpeakerPreview: FunctionComponent<SpeakerPreviewProps> = ({speaker: {name, foto}}): JSX.Element => {
+const SpeakerPreview: FunctionComponent<SpeakerPreviewProps> = ({ speaker: { name, foto } }): JSX.Element => {
   return (
     <SmallWrapper>
       <LazyLoad height={60} offset={100}>

@@ -8,7 +8,7 @@ import { FaTwitter } from 'react-icons/fa';
 import LazyLoad from 'react-lazyload';
 import Fonts from '../common/Fonts';
 import { Col, Row, Spaced } from '../common/Grid';
-import styled, { theme } from '../common/styled';
+import styled, { theme, media } from '../common/styled';
 import { HomepageType } from '../common/types';
 import { A, FontBig, H1, H2, H3, RichTextWrapper } from '../common/typography';
 import ContentWrapper from '../components/ContentWrapper';
@@ -57,7 +57,9 @@ const FeedbackWrapper = styled.div`
   margin-top: 45px;
   padding: 15px;
   p {
-    font-size: 20px;
+    ${media.md} {
+      font-size: 20px;
+    }
   }
   color: white;
   em {
@@ -65,6 +67,11 @@ const FeedbackWrapper = styled.div`
   }
   img {
     width: 80%;
+    margin-bottom: 30px;
+
+    ${media.md} {
+      margin-bottom: 0px;
+    }
     border-radius: 50%;
   }
 `;
@@ -107,14 +114,14 @@ const Index: NextPage = () => {
                 />
               </Header>
               <SimpleContentWrapper background={theme.black} color={theme.white}>
-                <Spaced multipleTop={8} />
+                <Spaced multipleTop={6} />
                 {homepage.feedback &&
                   homepage.feedback.length > 0 &&
                   homepage.feedback.map((fb, index) => {
                     return (
                       <FeedbackWrapper key={index}>
                         <Row valign='center'>
-                          <Col size={0.3} align={'center'} style={{ position: 'relative' }}>
+                          <Col size={{ xs: 1, md: 0.3 }} align={'center'} style={{ position: 'relative' }}>
                             <LazyLoad height={80} offset={100}>
                               <img src={fb.image.url} alt={fb.twitter} />
                             </LazyLoad>
@@ -128,7 +135,7 @@ const Index: NextPage = () => {
                               </a>
                             </Twitter>
                           </Col>
-                          <Col size={0.7}>
+                          <Col size={{ xs: 1, md: 0.7 }} align={'center'}>
                             <RichTextWrapper>{RichText.render(fb.text)}</RichTextWrapper>
                           </Col>
                         </Row>
