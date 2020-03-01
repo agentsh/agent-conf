@@ -88,12 +88,19 @@ export interface HomepageType {
   meta_description: string;
   meta_title: string;
   meta_og_image: ImageType;
+  feedback: FeedbackType[];
 }
 
 export interface SponsorType {
   name: string;
   logo: ImageType;
   url: WebLink;
+}
+
+export interface FeedbackType {
+  twitter: string;
+  image: ImageType;
+  text: RichTextType;
 }
 
 export interface TeamType {

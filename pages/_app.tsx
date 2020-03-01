@@ -1,14 +1,14 @@
-import {AppContextType, AppInitialProps} from 'next-server/dist/lib/utils';
-import App, {Container, AppContext} from 'next/app';
+import { AppContextType, AppInitialProps } from 'next-server/dist/lib/utils';
+import App, { Container, AppContext } from 'next/app';
 import Link from 'next/link';
-import React, {Fragment} from 'react';
-import {ApolloProvider} from 'react-apollo';
-import {push as Menu} from 'react-burger-menu';
-import {GlobalStyle} from '../common/globalStyle';
-import {NavLink} from '../common/links';
-import styled, {theme, ThemeProvider} from '../common/styled';
+import React, { Fragment } from 'react';
+import { ApolloProvider } from 'react-apollo';
+import { push as Menu } from 'react-burger-menu';
+import { GlobalStyle } from '../common/globalStyle';
+import { NavLink } from '../common/links';
+import styled, { theme, ThemeProvider } from '../common/styled';
 import withApollo from '../lib/withApollo';
-import {ApolloClient, InMemoryCache} from 'apollo-boost';
+import { ApolloClient, InMemoryCache } from 'apollo-boost';
 
 export interface CustomAppContext extends AppContext {
   apolloClient: ApolloClient<InMemoryCache>;
@@ -21,15 +21,15 @@ const MenuItem = styled.div`
 `;
 
 class MyApp extends App<CustomAppProps, CustomAppContext> {
-  state = {showMenu: false};
+  state = { showMenu: false };
   handleStateChange = state => {
-    this.setState({showMenu: state.isOpen});
+    this.setState({ showMenu: state.isOpen });
   };
   hideNav = () => {
-    this.setState({showMenu: false});
+    this.setState({ showMenu: false });
   };
   render() {
-    const {Component, pageProps, apolloClient} = this.props;
+    const { Component, pageProps, apolloClient } = this.props;
     return (
       <Fragment>
         {/* <noscript>
@@ -56,26 +56,26 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                       <NavLink>Home</NavLink>
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={this.hideNav}>
+                  {/* <MenuItem onClick={this.hideNav}>
                     <Link href={'/index#speakers'}>
                       <NavLink>Speakers</NavLink>
                     </Link>
-                  </MenuItem>
-                  <MenuItem onClick={this.hideNav}>
+                  </MenuItem> */}
+                  {/* <MenuItem onClick={this.hideNav}>
                     <Link href={'/index#schedule'}>
                       <NavLink>Schedule</NavLink>
-                    </Link>
-                  </MenuItem>
+                    </Link> 
+                  </MenuItem>*/}
                   <MenuItem onClick={this.hideNav}>
                     <Link href={'/info/[slug]'} as={'/info/venue'}>
                       <NavLink>Venue</NavLink>
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={this.hideNav}>
+                  {/* <MenuItem onClick={this.hideNav}>
                     <Link href={'#tickets'}>
                       <NavLink>Get Tickets</NavLink>
                     </Link>
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem onClick={this.hideNav}>
                     <Link href={'/info/[slug]'} as={'/info/dornbirn'}>
                       <NavLink>Dornbirn</NavLink>
@@ -97,6 +97,11 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={this.hideNav}>
+                    <Link href={'/agent-conf-2020'} as={'/agent-conf-2020'}>
+                      <NavLink>AgentConf 2020</NavLink>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={this.hideNav}>
                     <Link href={'/agent-conf-2019'} as={'/agent-conf-2019'}>
                       <NavLink>AgentConf 2019</NavLink>
                     </Link>
@@ -112,7 +117,7 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                     </Link>
                   </MenuItem>
                 </Menu>
-                <main id="page-wrap">
+                <main id='page-wrap'>
                   <Component {...pageProps} />
                 </main>
               </Fragment>

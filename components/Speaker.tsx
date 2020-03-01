@@ -31,7 +31,7 @@ const Name = styled.div`
 const Text = styled.div`
   margin-bottom: ${props => props.theme.spacing}px;
 `;
-const Twitter = styled.div`
+export const Twitter = styled.div`
   position: absolute;
   right: 50px;
   top: 180px;

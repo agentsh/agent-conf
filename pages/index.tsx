@@ -1,40 +1,28 @@
 import gql from 'graphql-tag';
-import {NextPage} from 'next';
+import { NextPage } from 'next';
 import Link from 'next/link';
-import {RichText} from 'prismic-reactjs';
-import React, {Fragment, useEffect} from 'react';
-import {Query, QueryResult} from 'react-apollo';
+import { RichText } from 'prismic-reactjs';
+import React, { Fragment, useEffect } from 'react';
+import { Query, QueryResult } from 'react-apollo';
+import { FaTwitter } from 'react-icons/fa';
 import LazyLoad from 'react-lazyload';
-import YouTube from 'react-youtube';
 import Fonts from '../common/Fonts';
-import {Col, Padded, Row, Spaced} from '../common/Grid';
-import {ButtonLink} from '../common/links';
-import {theme} from '../common/styled';
-import {HomepageType} from '../common/types';
-import {A, FontBig, H2, H3, RichTextWrapper} from '../common/typography';
-import BorderedBlock from '../components/BorderedBlock';
+import { Col, Row, Spaced } from '../common/Grid';
+import styled, { theme } from '../common/styled';
+import { HomepageType } from '../common/types';
+import { A, FontBig, H1, H2, H3, RichTextWrapper } from '../common/typography';
 import ContentWrapper from '../components/ContentWrapper';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
-import Header, {DateInfo, Headline, InfoText, LocationInfo, Slogan, TicketCol} from '../components/Header';
 import HeadlineGroup from '../components/HeadlineGroup';
 import SimpleContentWrapper from '../components/SimpleContentWrapper';
-import Speakers from '../components/Speakers';
-import SponsorBar from '../components/SponsorBar';
-import Talks from '../components/Talks';
-import Tickets from '../components/Tickets';
-
-const youtubeOptions = {
-  width: '100%',
-  playerVars: {
-    // https://developers.google.com/youtube/player_parameters
-    autoplay: 0,
-  },
-};
+import { Twitter } from '../components/Speaker';
+import { Videos } from '../components/Videos';
+import Header from '../components/Header';
 
 export const indexQuery = gql`
   {
-    homepage(uid: "index", lang: "en-us") {
+    homepage(uid: "agent-conf-2020", lang: "en-us") {
       header_background
       header_small_headline
       header_headline_row_1
@@ -55,7 +43,29 @@ export const indexQuery = gql`
       meta_title
       meta_og_image
       meta_description
+      feedback {
+        image
+        twitter
+        text
+      }
     }
+  }
+`;
+
+const FeedbackWrapper = styled.div`
+  border-radius: 5px;
+  margin-top: 45px;
+  padding: 15px;
+  p {
+    font-size: 20px;
+  }
+  color: white;
+  em {
+    color: ${({ theme }) => theme.primaryColor};
+  }
+  img {
+    width: 80%;
+    border-radius: 50%;
   }
 `;
 
@@ -70,10 +80,10 @@ const Index: NextPage = () => {
   return (
     <Fragment>
       <Query query={indexQuery}>
-        {({loading, error, data}: QueryResult) => {
+        {({ loading, error, data }: QueryResult) => {
           if (error) return <div>error</div>;
           if (loading) return <div>loading ...</div>;
-          const {homepage}: {homepage: HomepageType} = data;
+          const { homepage }: { homepage: HomepageType } = data;
           return (
             <Fragment>
               <CustomHead
@@ -81,103 +91,61 @@ const Index: NextPage = () => {
                 description={homepage.meta_description}
                 image={homepage.meta_og_image ? homepage.meta_og_image.url : null}
               />
-              <Header backgroundImage={homepage.header_background}>
-                <Row valign="bottom">
-                  <Col size={{xs: 1, md: 3 / 4}}>
-                    <Slogan>THE INTERNATIONAL EVENT FOR CODING INSPIRATION</Slogan>
-                    <Headline>AgentConf</Headline>
-                    <InfoText>💥 2 days single track conference</InfoText>
-                    <InfoText>⛷ 2 days of skiing</InfoText>
-                    <DateInfo>23rd - 26th January&nbsp;2020</DateInfo>
-                    <LocationInfo>Dornbirn & Lech, Austria</LocationInfo>
-                  </Col>
-                  <TicketCol size={{xs: 1, md: 1 / 4}}>
-                    <Link href={'/#tickets'}>
-                      <ButtonLink>get Tickets</ButtonLink>
-                    </Link>
-                  </TicketCol>
-                </Row>
+              <Header backgroundImage={homepage.about_image} fullHeight={false}>
+                <HeadlineGroup
+                  headline={
+                    <H1 color={theme.white}>
+                      AgentConf 2020
+                      <br />
+                      is history and we got great Feedback
+                    </H1>
+                  }
+                  smallTop={homepage.header_small_headline}
+                  action={homepage.header_action}
+                  action_name={homepage.header_action_text}
+                  action_desc={homepage.header_action_description}
+                />
               </Header>
-              <SponsorBar uid={'sponsor-bar-2020'} />
-              <ContentWrapper
-                colorTop={theme.white}
-                colorMain={theme.white}
-                colorBottom={theme.black}
-                backgroundContent={theme.white}>
-                <Spaced multipleTop={7} multipleBottom={4}>
-                  <Padded multiple={5}>
-                    <Row>
-                      <Col size={{xs: 1, md: 0.5}}>
-                        <RichTextWrapper>{RichText.render(homepage.about_content_left)}</RichTextWrapper>
-                      </Col>
-                      <Col size={{xs: 1, md: 0.5}}>
-                        <RichTextWrapper>{RichText.render(homepage.about_content_right)}</RichTextWrapper>
-                      </Col>
-                    </Row>
-                  </Padded>
-                </Spaced>
-                <LazyLoad height={200} offset={100}>
-                  <BorderedBlock>
-                    <YouTube videoId={'yPucwN9GQgU'} className={''} containerClassName={''} opts={youtubeOptions} />
-                  </BorderedBlock>
-                </LazyLoad>
-              </ContentWrapper>
               <SimpleContentWrapper background={theme.black} color={theme.white}>
-                <Spaced multipleTop={5} multipleBottom={5}>
-                  <HeadlineGroup
-                    headline={
-                      <H2 color={theme.white}>
-                        Worldclass
-                        <br />
-                        Speakers
-                      </H2>
-                    }
-                  />
-                  <Speakers slug={'speakers-2020'} />
-                </Spaced>
+                <Spaced multipleTop={8} />
+                {homepage.feedback &&
+                  homepage.feedback.length > 0 &&
+                  homepage.feedback.map((fb, index) => {
+                    return (
+                      <FeedbackWrapper key={index}>
+                        <Row valign='center'>
+                          <Col size={0.3} align={'center'} style={{ position: 'relative' }}>
+                            <LazyLoad height={80} offset={100}>
+                              <img src={fb.image.url} alt={fb.twitter} />
+                            </LazyLoad>
+
+                            <Twitter>
+                              <a
+                                href={`https://www.twitter.com/${fb.twitter}`}
+                                target='_blank'
+                                rel='noopener noreferrer'>
+                                <FaTwitter color={theme.white} size={40} />
+                              </a>
+                            </Twitter>
+                          </Col>
+                          <Col size={0.7}>
+                            <RichTextWrapper>{RichText.render(fb.text)}</RichTextWrapper>
+                          </Col>
+                        </Row>
+                      </FeedbackWrapper>
+                    );
+                  })}
               </SimpleContentWrapper>
-              <div id="schedule">
-                <ContentWrapper
-                  colorTop={theme.black}
-                  colorMain={theme.black}
-                  colorBottom={theme.black}
-                  backgroundContent={theme.white}>
-                  <Spaced multipleBottom={4} multipleTop={2}>
-                    <HeadlineGroup
-                      headline={
-                        <H2 color={theme.primaryColor}>
-                          The <br />
-                          Schedule
-                        </H2>
-                      }
-                      lineColor={theme.primaryColor}
-                    />
-                    <div style={{padding: '0 20px'}}>
-                      <Spaced multipleTop={0} multipleBottom={3}>
-                        <H3 color={theme.black}>23.01. Conference Day</H3>
-                        <Talks uid="schedule-2020-day-1" />
-                      </Spaced>
-                      <Spaced multipleTop={0} multipleBottom={3}>
-                        <H3 color={theme.black}>24.01. Conference Day</H3>
-                        <Talks uid="schedule-2020-day-2" />
-                      </Spaced>
-                      <Spaced multipleTop={0} multipleBottom={0}>
-                        <H3 color={theme.black}>25.01. & 26.01. Activity Days in Lech</H3>
-                        <FontBig>
-                          <Link href={'/info/[slug]'} as={'/info/lech'}>
-                            <A>Read more about the activities in Lech</A>
-                          </Link>
-                          <br />
-                          <br />
-                          On Sunday 26th the bus to Dornbirn leaves Lech at 17:00 and arrives in Dornbirn at about
-                          18:30.
-                        </FontBig>
-                      </Spaced>
-                    </div>
+              <Spaced multipleTop={5} />
+              <div id='schedule'>
+                <SimpleContentWrapper background={theme.black} color={theme.white}>
+                  <HeadlineGroup headline={<H2 color={theme.white}>The Talks</H2>} />
+                  <Spaced multipleTop={3} multipleBottom={3}>
+                    <Videos uid='schedule-2020-day-1' />
+                    <Videos uid='schedule-2020-day-2' />
                   </Spaced>
-                </ContentWrapper>
+                </SimpleContentWrapper>
               </div>
-              <Tickets />
               <Footer />
             </Fragment>
           );
@@ -186,7 +154,7 @@ const Index: NextPage = () => {
     </Fragment>
   );
 };
-Index.getInitialProps = async ({res}) => {
+Index.getInitialProps = async ({ res }) => {
   if (res) {
     res.setHeader('Cache-Control', 's-maxage=100, stale-while-revalidate');
   }

@@ -1,24 +1,24 @@
-import React, {Fragment, FunctionComponent} from 'react';
+import React, { Fragment, FunctionComponent } from 'react';
 
-import {Col, Row, VCenterWrapper, Container} from '../common/Grid';
-import {FooterLink} from '../common/links';
+import { Col, Row, VCenterWrapper, Container } from '../common/Grid';
+import { FooterLink } from '../common/links';
 import Banner from './Banner';
 import SponsorFooter from './SponsorFooter';
-import styled, {media} from '../common/styled';
+import styled, { media } from '../common/styled';
 import Link from 'next/link';
 import PartnerFooter from './PartnerFooter';
 
 const Nav = styled.div`
-  padding: ${({theme}) => theme.spacing * 2}px 0;
+  padding: ${({ theme }) => theme.spacing * 2}px 0;
   background-size: cover;
-  background: ${({theme}) => theme.black};
-  color: ${({theme}) => theme.white};
+  background: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
 `;
 
 const CopyRight = styled.div`
-  padding: 0px ${({theme}) => theme.spacing}px;
+  padding: 0px ${({ theme }) => theme.spacing}px;
   min-height: 100px;
-  background: ${({theme}) => theme.black};
+  background: ${({ theme }) => theme.black};
   color: white;
   display: flex;
   font-size: 14px;
@@ -40,19 +40,19 @@ const AlpineInfo = styled.p`
 export interface FooterProps {
   hideSponsors?: boolean;
 }
-const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
+const Footer: FunctionComponent<FooterProps> = ({ hideSponsors }) => {
   return (
     <Fragment>
-      <Banner slug="about-agent" />
-      {!hideSponsors && <SponsorFooter uid="footer-sponsors-2020" />}
-      {!hideSponsors && <PartnerFooter uid="partners" />}
+      <Banner slug='about-agent' />
+      {!hideSponsors && <SponsorFooter uid='footer-sponsors-2020' />}
+      {!hideSponsors && <PartnerFooter uid='partners' />}
       <Nav>
         <Container>
           <Row>
-            <Col size={{xs: 0, md: 1 / 4}}>
+            <Col size={{ xs: 0, md: 1 / 4 }}>
               <Logo src={'/static/assets/logo.png'} />
             </Col>
-            <Col size={{xs: 1, md: 3 / 4}}>
+            <Col size={{ xs: 1, md: 3 / 4 }}>
               <Link href={'/'}>
                 <FooterLink>Home</FooterLink>
               </Link>
@@ -68,9 +68,9 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
               <Link href={'/info/[slug]'} as={'/info/venue'}>
                 <FooterLink>Venue</FooterLink>
               </Link>
-              <Link href={'/index#tickets'}>
+              {/* <Link href={'/index#tickets'}>
                 <FooterLink>Get Tickets</FooterLink>
-              </Link>
+              </Link> */}
               {/* <Link href={'/info/about'}> */}
               {/*   <FooterLink>About</FooterLink> */}
               {/* </Link> */}
@@ -94,7 +94,7 @@ const Footer: FunctionComponent<FooterProps> = ({hideSponsors}) => {
         <VCenterWrapper>
           <AlpineInfo>
             Get unique inspiration from world class engineers.
-            <br />© 2019 Alpine Conferences. All Rights Reserved.
+            <br />© {new Date().getFullYear()} Alpine Conferences. All Rights Reserved.
           </AlpineInfo>
         </VCenterWrapper>
       </CopyRight>

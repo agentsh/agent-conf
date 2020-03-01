@@ -1,20 +1,20 @@
-import {withRouter} from 'next/router';
-import React, {FunctionComponent} from 'react';
-import {Container, Spaced, Col} from '../common/Grid';
-import styled, {media} from '../common/styled';
-import {ImageType} from '../common/types';
-import {H1} from '../common/typography';
+import { withRouter } from 'next/router';
+import React, { FunctionComponent } from 'react';
+import { Container, Spaced, Col } from '../common/Grid';
+import styled, { media } from '../common/styled';
+import { ImageType } from '../common/types';
+import { H1 } from '../common/typography';
 
-const Wrapper = styled.div<{backgroundImage?: ImageType}>`
+const Wrapper = styled.div<{ backgroundImage?: ImageType; fullHeight: boolean }>`
   width: 100%;
-  background: ${({theme}) => theme.black};
-  background-image: ${({backgroundImage}) => (backgroundImage ? `url(${backgroundImage.url})` : '')};
+  background: ${({ theme }) => theme.black};
+  background-image: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage.url})` : '')};
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: black;
   height: 800px;
-  max-height: 100vh;
+  max-height: ${({ fullHeight }) => (fullHeight ? 100 : 60)}vh;
   position: relative;
   &:after {
     width: 100%;
@@ -23,7 +23,7 @@ const Wrapper = styled.div<{backgroundImage?: ImageType}>`
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(to top, ${({theme}) => theme.black} 0%, ${({theme}) => theme.white}10 100%);
+    background: linear-gradient(to top, ${({ theme }) => theme.black} 0%, ${({ theme }) => theme.white}10 100%);
     height: 100%;
     z-index: 1;
   }
@@ -67,7 +67,7 @@ const Logo = styled.img`
 export const InfoText = styled.div`
   font-size: 16px;
   margin-bottom: 10px;
-  color: ${({theme}) => theme.white};
+  color: ${({ theme }) => theme.white};
   ${media.md} {
     display: block;
     font-size: 18px;
@@ -122,14 +122,20 @@ export const TicketCol = styled(Col)`
 export interface HeaderProps {
   router: any;
   backgroundImage?: ImageType;
+  fullHeight?: boolean;
 }
-const Header: FunctionComponent<HeaderProps> = ({children, router, backgroundImage}): JSX.Element => {
+const Header: FunctionComponent<HeaderProps> = ({
+  children,
+  router,
+  backgroundImage,
+  fullHeight = true,
+}): JSX.Element => {
   const handleClick = e => {
     e.preventDefault();
     router.push('/');
   };
   return (
-    <Wrapper backgroundImage={backgroundImage}>
+    <Wrapper backgroundImage={backgroundImage} fullHeight={fullHeight}>
       <WrapperContent>
         <Logo src={'/static/assets/logo.png'} onClick={handleClick} />
         <Spaced multipleBottom={9} multipleTop={9}>
