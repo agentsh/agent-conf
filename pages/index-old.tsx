@@ -11,7 +11,7 @@ import {Col, Row, Spaced} from '../common/Grid';
 import styled, {theme, media} from '../common/styled';
 import {HomepageType} from '../common/types';
 import {A, FontBig, H1, H2, H3, RichTextWrapper} from '../common/typography';
-import ContentWrapper, {Container} from '../components/ContentWrapper';
+import ContentWrapper from '../components/ContentWrapper';
 import CustomHead from '../components/CustomHead';
 import Footer from '../components/Footer';
 import HeadlineGroup from '../components/HeadlineGroup';
@@ -19,11 +19,10 @@ import SimpleContentWrapper from '../components/SimpleContentWrapper';
 import {Twitter} from '../components/Speaker';
 import {Videos} from '../components/Videos';
 import Header from '../components/Header';
-import SponsorBar from '../components/SponsorBar';
 
 export const indexQuery = gql`
   {
-    homepage(uid: "agent-conf-2021", lang: "en-us") {
+    homepage(uid: "agent-conf-2020", lang: "en-us") {
       header_background
       header_small_headline
       header_headline_row_1
@@ -99,14 +98,13 @@ const Index: NextPage = () => {
                 description={homepage.meta_description}
                 image={homepage.meta_og_image ? homepage.meta_og_image.url : null}
               />
-
-              <Header backgroundImage={homepage.header_background}>
+              <Header backgroundImage={homepage.about_image} fullHeight={false}>
                 <HeadlineGroup
                   headline={
                     <H1 color={theme.white}>
-                      {homepage.header_headline_row_1}
+                      AgentConf 2020
                       <br />
-                      {homepage.header_headline_row_2}
+                      is history and we got great Feedback
                     </H1>
                   }
                   smallTop={homepage.header_small_headline}
@@ -114,11 +112,48 @@ const Index: NextPage = () => {
                   action_name={homepage.header_action_text}
                   action_desc={homepage.header_action_description}
                 />
-                <Container>
-                  <RichTextWrapper>{RichText.render(homepage.about_content_left)}</RichTextWrapper>
-                </Container>
               </Header>
-              <SponsorBar uid={'sponsor-bar-2021'} />
+              <SimpleContentWrapper background={theme.black} color={theme.white}>
+                <Spaced multipleTop={6} />
+                {homepage.feedback &&
+                  homepage.feedback.length > 0 &&
+                  homepage.feedback.map((fb, index) => {
+                    return (
+                      <FeedbackWrapper key={index}>
+                        <Row valign='center'>
+                          <Col size={{xs: 1, md: 0.3}} align={'center'} style={{position: 'relative'}}>
+                            <LazyLoad height={80} offset={100}>
+                              <img src={fb.image.url} alt={fb.twitter} />
+                            </LazyLoad>
+
+                            <Twitter>
+                              <a
+                                href={`https://www.twitter.com/${fb.twitter}`}
+                                target='_blank'
+                                rel='noopener noreferrer'>
+                                <FaTwitter color={theme.white} size={40} />
+                              </a>
+                            </Twitter>
+                          </Col>
+                          <Col size={{xs: 1, md: 0.7}} align={'center'}>
+                            <RichTextWrapper>{RichText.render(fb.text)}</RichTextWrapper>
+                          </Col>
+                        </Row>
+                      </FeedbackWrapper>
+                    );
+                  })}
+              </SimpleContentWrapper>
+              <Spaced multipleTop={5} />
+              <div id='schedule'>
+                <SimpleContentWrapper background={theme.black} color={theme.white}>
+                  <HeadlineGroup headline={<H2 color={theme.white}>The Talks</H2>} />
+                  <Spaced multipleTop={3} multipleBottom={3}>
+                    <Videos uid='schedule-2020-day-1' />
+                    <Videos uid='schedule-2020-day-2' />
+                  </Spaced>
+                </SimpleContentWrapper>
+              </div>
+              <Footer />
             </Fragment>
           );
         }}
@@ -126,7 +161,6 @@ const Index: NextPage = () => {
     </Fragment>
   );
 };
-
 Index.getInitialProps = async ({res}) => {
   if (res) {
     res.setHeader('Cache-Control', 's-maxage=100, stale-while-revalidate');

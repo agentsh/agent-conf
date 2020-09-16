@@ -1,14 +1,29 @@
-import { AppContextType, AppInitialProps } from 'next-server/dist/lib/utils';
-import App, { Container, AppContext } from 'next/app';
+import {AppContextType, AppInitialProps} from 'next-server/dist/lib/utils';
+import App, {Container, AppContext} from 'next/app';
 import Link from 'next/link';
-import React, { Fragment } from 'react';
-import { ApolloProvider } from 'react-apollo';
-import { push as Menu } from 'react-burger-menu';
-import { GlobalStyle } from '../common/globalStyle';
-import { NavLink } from '../common/links';
-import styled, { theme, ThemeProvider } from '../common/styled';
+import React, {Fragment} from 'react';
+import {ApolloProvider} from 'react-apollo';
+import {push as Menu} from 'react-burger-menu';
+import {GlobalStyle} from '../common/globalStyle';
+import {NavLink} from '../common/links';
+import styled, {theme, ThemeProvider} from '../common/styled';
 import withApollo from '../lib/withApollo';
-import { ApolloClient, InMemoryCache } from 'apollo-boost';
+import {ApolloClient, InMemoryCache} from 'apollo-boost';
+
+import {FeedbackForm} from 'feedback-fish';
+
+const FeedbackButton = styled.button`
+  position: fixed;
+  right: 0px;
+  bottom: 10%;
+  z-index: 30;
+  background: ${({theme}) => theme.primaryColor};
+  border: 0;
+  padding: 5px;
+  color: white;
+`;
+
+const Button = (props) => <FeedbackButton {...props}>Feedback</FeedbackButton>;
 
 export interface CustomAppContext extends AppContext {
   apolloClient: ApolloClient<InMemoryCache>;
@@ -21,15 +36,15 @@ const MenuItem = styled.div`
 `;
 
 class MyApp extends App<CustomAppProps, CustomAppContext> {
-  state = { showMenu: false };
-  handleStateChange = state => {
-    this.setState({ showMenu: state.isOpen });
+  state = {showMenu: false};
+  handleStateChange = (state) => {
+    this.setState({showMenu: state.isOpen});
   };
   hideNav = () => {
-    this.setState({ showMenu: false });
+    this.setState({showMenu: false});
   };
   render() {
-    const { Component, pageProps, apolloClient } = this.props;
+    const {Component, pageProps, apolloClient} = this.props;
     return (
       <Fragment>
         {/* <noscript>
@@ -50,7 +65,7 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                   pageWrapId={'page-wrap'}
                   right
                   isOpen={this.state.showMenu}
-                  onStateChange={state => this.handleStateChange(state)}>
+                  onStateChange={(state) => this.handleStateChange(state)}>
                   <MenuItem onClick={this.hideNav}>
                     <Link href={'/index'}>
                       <NavLink>Home</NavLink>
@@ -119,6 +134,8 @@ class MyApp extends App<CustomAppProps, CustomAppContext> {
                 </Menu>
                 <main id='page-wrap'>
                   <Component {...pageProps} />
+
+                  <FeedbackForm projectId='140a195a2d3673' triggerComponent={Button} />
                 </main>
               </Fragment>
             </ApolloProvider>
